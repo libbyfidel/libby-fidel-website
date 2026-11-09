@@ -22,7 +22,7 @@
 <div id="map"></div>
 <div id="bar"><b>Ski Spotter</b><span id="msg">Loading…</span><button id="btn" disabled>Guess</button></div>
 <script>
-const KEY = "YOUR_API_KEY"; // paste your Google Maps API key here
+const KEY = "AIzaSyDjSyD3hQmcwVZEazwF3vToTUBg1i8WEBg"; // paste your Google Maps API key here
 const R = [["Whistler, Canada",50.115,-122.948],["Vail, USA",39.640,-106.374],["Aspen, USA",39.187,-106.818],["Jackson Hole, USA",43.587,-110.828],["Park City, USA",40.651,-111.508],["Mammoth, USA",37.651,-119.037],["Palisades Tahoe, USA",39.197,-120.235],["Lake Louise, Canada",51.425,-116.162],["Mont Tremblant, Canada",46.209,-74.585],["Stowe, USA",44.530,-72.781],["Telluride, USA",37.937,-107.812],["Taos, USA",36.596,-105.454],["Zermatt, Switzerland",46.020,7.749],["Chamonix, France",45.924,6.869],["St. Moritz, Switzerland",46.498,9.839],["Verbier, Switzerland",46.096,7.228],["Val d'Isère, France",45.448,6.980],["Courchevel, France",45.415,6.634],["Kitzbühel, Austria",47.446,12.392],["St. Anton, Austria",47.129,10.268],["Cortina d'Ampezzo, Italy",46.540,12.136],["Niseko, Japan",42.862,140.699],["Hakuba, Japan",36.698,137.832],["Portillo, Chile",-32.835,-70.130],["Valle Nevado, Chile",-33.357,-70.249],["Coronet Peak, New Zealand",-45.082,168.729],["Thredbo, Australia",-36.505,148.306],["Gudauri, Georgia",42.478,44.478],["Åre, Sweden",63.399,13.081],["Cerro Catedral, Argentina",-41.168,-71.440],["Sierra Nevada, Spain",37.096,-3.396],["Yongpyong, South Korea",37.645,128.681]];
 let map, pano, sv, guess, answer, overlays = [], round = 0, total = 0, pool = [];
 const $ = id => document.getElementById(id);
