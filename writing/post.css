@@ -1,0 +1,8 @@
+body{margin:0;background:#FBF7F0;color:#13292C;font:18px/1.7 Georgia,serif}
+header{background:#006D77;padding:18px 24px}header a{color:#FBF7F0;text-decoration:none;font-size:20px;display:inline-flex;align-items:center;gap:10px}header img{width:32px;height:32px}header nav{float:right;font:15px -apple-system,sans-serif;line-height:32px}header nav a{font-size:15px;margin-left:20px;color:#D3E8E5}
+main{max-width:680px;margin:0 auto;padding:56px 24px 80px}h1{font-weight:400;font-size:44px;line-height:1.1;letter-spacing:-.01em;margin:0 0 14px}
+.meta{font:14px -apple-system,sans-serif;color:#5C6664;margin-bottom:32px}.meta a,main a{color:#006D77}
+h2{font:500 13px ui-monospace,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase;color:#006D77;margin:44px 0 8px}
+img.wide{width:100%;border-radius:12px;margin:8px 0 24px}li{margin-bottom:10px}
+.end{margin-top:48px;padding-top:20px;border-top:1px solid #DDD5C8;font:15px -apple-system,sans-serif}
+.list a{display:block;padding:22px 0;border-bottom:1px solid #DDD5C8;text-decoration:none;color:#13292C}.list b{display:block;font-weight:400;font-size:26px;line-height:1.2}.list span{font:14px -apple-system,sans-serif;color:#5C6664}
