@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ski Spotter · Libby Fidel</title>
+<link rel="icon" href="/brand/libby-mark-teal.svg">
+<style>
+  body { margin: 0; font-family: -apple-system, "Segoe UI", sans-serif; background: #13292C; color: #FBF7F0; }
+  #pano { position: fixed; inset: 0; }
+  #map { position: fixed; right: 16px; bottom: 76px; width: 300px; height: 200px; border: 3px solid #FBF7F0; border-radius: 12px; transition: .2s; z-index: 2; }
+  #map:hover { width: 560px; height: 380px; }
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; display: flex; gap: 16px; align-items: center; padding: 14px 20px; background: #006D77; z-index: 3; }
+  #msg { flex: 1; }
+  button { background: #FF5B14; color: #13292C; border: 0; border-radius: 999px; padding: 12px 24px; font: 600 16px sans-serif; cursor: pointer; }
+  button:disabled { opacity: .4; cursor: default; }
+  a { color: #FFDE7A; }
+</style>
+</head>
+<body>
+<div id="pano"></div>
+<div id="map"></div>
+<div id="bar"><b>Ski Spotter</b><span id="msg">Loading…</span><button id="btn" disabled>Guess</button></div>
+<script>
+const KEY = "YOUR_API_KEY"; // paste your Google Maps API key here
+const R = [["Whistler, Canada",50.115,-122.948],["Vail, USA",39.640,-106.374],["Aspen, USA",39.187,-106.818],["Jackson Hole, USA",43.587,-110.828],["Park City, USA",40.651,-111.508],["Mammoth, USA",37.651,-119.037],["Palisades Tahoe, USA",39.197,-120.235],["Lake Louise, Canada",51.425,-116.162],["Mont Tremblant, Canada",46.209,-74.585],["Stowe, USA",44.530,-72.781],["Telluride, USA",37.937,-107.812],["Taos, USA",36.596,-105.454],["Zermatt, Switzerland",46.020,7.749],["Chamonix, France",45.924,6.869],["St. Moritz, Switzerland",46.498,9.839],["Verbier, Switzerland",46.096,7.228],["Val d'Isère, France",45.448,6.980],["Courchevel, France",45.415,6.634],["Kitzbühel, Austria",47.446,12.392],["St. Anton, Austria",47.129,10.268],["Cortina d'Ampezzo, Italy",46.540,12.136],["Niseko, Japan",42.862,140.699],["Hakuba, Japan",36.698,137.832],["Portillo, Chile",-32.835,-70.130],["Valle Nevado, Chile",-33.357,-70.249],["Coronet Peak, New Zealand",-45.082,168.729],["Thredbo, Australia",-36.505,148.306],["Gudauri, Georgia",42.478,44.478],["Åre, Sweden",63.399,13.081],["Cerro Catedral, Argentina",-41.168,-71.440],["Sierra Nevada, Spain",37.096,-3.396],["Yongpyong, South Korea",37.645,128.681]];
+let map, pano, sv, guess, answer, overlays = [], round = 0, total = 0, pool = [];
+const $ = id => document.getElementById(id);
+
+function init() {
+  pano = new google.maps.StreetViewPanorama($("pano"), { addressControl: false, showRoadLabels: false, fullscreenControl: false, linksControl: true });
+  map = new google.maps.Map($("map"), { center: { lat: 30, lng: 0 }, zoom: 1, disableDefaultUI: true, clickableIcons: false });
+  sv = new google.maps.StreetViewService();
+  map.addListener("click", e => { if (answer) return; guess?.setMap(null); guess = new google.maps.Marker({ position: e.latLng, map }); $("btn").disabled = false; });
+  $("btn").onclick = () => answer ? (round < 3 ? next() : start()) : score();
+  start();
+}
+
+function start() { round = 0; total = 0; pool = [...R].sort(() => Math.random() - .5); next(); }
+
+function next() {
+  overlays.forEach(o => o.setMap(null)); guess?.setMap(null); guess = answer = null;
+  map.setCenter({ lat: 30, lng: 0 }); map.setZoom(1);
+  $("btn").disabled = true; $("btn").textContent = "Guess";
+  const [name, lat, lng] = pool.pop();
+  sv.getPanorama({ location: { lat, lng }, radius: 5000, source: google.maps.StreetViewSource.OUTDOOR }, (d, s) => {
+    if (s !== "OK") return next(); // no imagery nearby, try another resort
+    round++; pano.setPano(d.location.pano); pano.setPov({ heading: Math.random() * 360, pitch: 0 });
+    pano.target = { name, pos: d.location.latLng };
+    $("msg").textContent = `Round ${round} of 3 · Click the map to guess where this ski resort is.`;
+  });
+}
+
+function score() {
+  answer = pano.target;
+  const km = google.maps.geometry.spherical.computeDistanceBetween(guess.getPosition(), answer.pos) / 1000;
+  const pts = Math.round(5000 * Math.exp(-km / 2000)); total += pts;
+  overlays = [new google.maps.Marker({ position: answer.pos, map, label: "★" }), new google.maps.Polyline({ path: [guess.getPosition(), answer.pos], map, strokeColor: "#FF5B14" })];
+  const b = new google.maps.LatLngBounds(); b.extend(guess.getPosition()); b.extend(answer.pos); map.fitBounds(b);
+  $("msg").textContent = `${answer.name} · ${Math.round(km).toLocaleString()} km away · +${pts} pts` + (round === 3 ? ` · Final score: ${total.toLocaleString()} / 15,000` : "");
+  $("btn").textContent = round < 3 ? "Next round" : "Play again";
+}
+
+const s = document.createElement("script");
+s.src = `https://maps.googleapis.com/maps/api/js?key=${KEY}&libraries=geometry&callback=init`;
+s.async = true; document.head.appendChild(s);
+</script>
+</body>
+</html>
