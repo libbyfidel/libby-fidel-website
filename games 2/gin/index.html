@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gin Rummy · Libby Fidel</title><link rel="icon" href="/brand/libby-mark-teal.svg"><link rel="stylesheet" href="../cards.css"></head>
+<body><main><h1>Gin Rummy<b>.</b></h1><p style="color:#5C6664;margin:0 0 12px">You vs. the computer, first to 100. Draw, then discard. Knock with 10 or less deadwood. <a href="/games/">← Games</a></p>
+<p id="sc" style="font-weight:600;margin:0"></p>
+<div class="lbl">Computer</div><div class="row" id="comp"></div>
+<div class="lbl">Stock &amp; discard</div><div class="row" id="pile"></div>
+<div class="lbl" id="yl">Your hand</div><div class="row" id="you"></div>
+<div id="ctl" style="margin-top:10px"></div><div id="log"></div></main>
+<script>
+const S='♠♥♦♣',RN=['','A',2,3,4,5,6,7,8,9,10,'J','Q','K'],V=c=>Math.min(c.r,10),$=i=>document.getElementById(i),nm=c=>RN[c.r]+S[c.s];
+let H,stock,disc,phase,sc=[0,0],knock=0,taken=null,msg='';
+const card=(c,a='',x='')=>`<button class="card${c.s%3?' red':''} ${x}" ${a}>${RN[c.r]}<span>${S[c.s]}</span></button>`,back=a=>`<button class="card back" ${a||'disabled'}></button>`;
+function melds(h){let ms=[],ix=h.map((_,i)=>i);
+ for(let r=1;r<14;r++){let g=ix.filter(i=>h[i].r==r);if(g.length>2){ms.push(g);if(g.length==4)for(let x=0;x<4;x++)ms.push(g.filter((_,j)=>j!=x))}}
+ for(let s=0;s<4;s++){let g=ix.filter(i=>h[i].s==s).sort((a,b)=>h[a].r-h[b].r);for(let a=0;a<g.length;a++)for(let b=a+2;b<g.length&&h[g[b]].r-h[g[a]].r==b-a;b++)ms.push(g.slice(a,b+1))}return ms}
+function best(h){let ms=melds(h),B={dw:h.reduce((a,c)=>a+V(c),0),m:[]};
+ (function go(i,u,cur,dw){if(dw<B.dw)B={dw,m:[...cur]};for(let k=i;k<ms.length;k++){let m=ms[k];if(m.some(x=>u>>x&1))continue;cur.push(m);go(k+1,m.reduce((a,x)=>a|1<<x,u),cur,dw-m.reduce((a,x)=>a+V(h[x]),0));cur.pop()}})(0,0,[],B.dw);return B}
+function bestDiscard(h,no){let b=null;h.forEach((c,i)=>{if(c===no)return;let r=best(h.filter((_,j)=>j!=i)).dw;if(!b||r<b.dw||r==b.dw&&V(c)>V(h[b.i]))b={i,dw:r}});return b}
+function shuffle(){let d=[];for(let s=0;s<4;s++)for(let r=1;r<14;r++)d.push({r,s});for(let i=51;i;i--){let j=Math.random()*(i+1)|0;[d[i],d[j]]=[d[j],d[i]]}return d}
+function deal(){stock=shuffle();H=[stock.splice(0,10),stock.splice(0,10)];disc=[stock.pop()];phase='draw';knock=0;taken=null;msg='Your turn: draw from the stock or take the discard.';render()}
+function draw(fromDisc){if(phase!='draw')return;let c=fromDisc?disc.pop():stock.pop();taken=fromDisc?c:null;H[0].push(c);phase='discard';msg=`You drew ${nm(c)}. Click a card to discard${fromDisc?' (not the one you just took)':''}.`;render()}
+function you(i){if(phase!='discard')return;let c=H[0][i];if(c===taken){msg="You can't discard the card you just took.";return render()}
+ let rest=H[0].filter((_,j)=>j!=i);if(knock){let b=best(rest);if(b.dw>10){msg=`That leaves ${b.dw} deadwood. You need 10 or less to knock.`;return render()}H[0]=rest;disc.push(c);return end(0)}
+ H[0]=rest;disc.push(c);if(stock.length<=2){msg='The stock ran out, so this hand is a draw.';phase='void';return render()}phase='comp';msg='Computer is thinking…';render();setTimeout(comp,800)}
+function comp(){let h=H[1],top=disc[disc.length-1],take=bestDiscard([...h,top],top);
+ let now=best(h).dw,c;if(take.dw<now&&take.dw<=now-2||take.dw==0){c=disc.pop();msg=`Computer took ${nm(c)}. `}else{c=stock.pop();msg='Computer drew from the stock. ';top=null}
+ h.push(c);let b=bestDiscard(h,top),d=h.splice(b.i,1)[0];disc.push(d);msg+=`Computer discarded ${nm(d)}.`;
+ if(b.dw<=10&&(b.dw<=4||stock.length<20))return end(1);
+ if(stock.length<=2){msg+=' The stock ran out, so this hand is a draw.';phase='void';return render()}phase='draw';knock=0;taken=null;msg+=' Your turn: draw.';render()}
+function end(k){let d=1-k,kb=best(H[k]),db=best(H[d]),km=kb.m.map(m=>m.map(i=>H[k][i])),dead=H[d].filter((_,i)=>!db.m.flat().includes(i)),lay=[];
+ if(kb.dw){let ch=1;while(ch){ch=0;for(let c of dead)for(let m of km){let set=m.every(x=>x.r==m[0].r),rs=m.map(x=>x.r);if(set?c.r==m[0].r&&m.length<4:c.s==m[0].s&&(c.r==Math.min(...rs)-1||c.r==Math.max(...rs)+1)){m.push(c);lay.push(c);dead=dead.filter(x=>x!==c);ch=1;break}}}}
+ let ddw=dead.reduce((a,c)=>a+V(c),0),who=k?'Computer':'You',pts,w;
+ if(!kb.dw){w=k;pts=25+ddw;msg=`${who} went gin! +${pts}`}else if(ddw<=kb.dw){w=d;pts=25+kb.dw-ddw;msg=`${who} knocked with ${kb.dw}, but got undercut (${ddw})! ${k?'You':'Computer'} +${pts}`}else{w=k;pts=ddw-kb.dw;msg=`${who} knocked with ${kb.dw} vs ${ddw}. ${who} +${pts}`}
+ if(lay.length)msg+=` (laid off ${lay.map(nm).join(' ')})`;sc[w]+=pts;phase=sc[w]>=100?'over':'end';if(phase=='over')msg+=w?' · Computer wins the game.':' · You win the game! 🎉';render()}
+function order(h){let b=best(h),inM=b.m.flat(),o=[...b.m.flat(),...h.map((_,i)=>i).filter(i=>!inM.includes(i)).sort((a,c)=>h[a].s-h[c].s||h[a].r-h[c].r)];return{o,inM,dw:b.dw}}
+function render(){let reveal=phase=='end'||phase=='over'||phase=='void',Y=order(H[0]);
+ $('sc').innerHTML=`You ${sc[0]} &nbsp;·&nbsp; Computer ${sc[1]}`;
+ if(reveal){let C=order(H[1]);$('comp').innerHTML=C.o.map(i=>card(H[1][i],'',C.inM.includes(i)?'m st':'st')).join('')}else $('comp').innerHTML=back().repeat(10);
+ let top=disc[disc.length-1];$('pile').innerHTML=back(phase=='draw'?'onclick="draw(0)" aria-label="Draw from stock" style="cursor:pointer"':'')+`<span style="font-size:13px;color:#5C6664;margin:0 10px 0 2px">${stock.length}</span>`+(top?card(top,phase=='draw'?'onclick="draw(1)"':'disabled'):'');
+ let kd=phase=='discard'?bestDiscard(H[0],taken):null;$('yl').textContent=`Your hand · deadwood ${Y.dw}${kd?` (${kd.dw} after best discard)`:''}`;
+ $('you').innerHTML=Y.o.map(i=>card(H[0][i],`onclick="you(${i})"${phase=='discard'||reveal?'':' disabled'}`,(Y.inM.includes(i)?'m ':'')+(reveal?'st':''))).join('');
+ $('ctl').innerHTML=phase=='discard'?`<button class="btn ${knock?'':'alt'}" onclick="knock^=1;msg=knock?'Knock: click the card to discard face down.':'Knock cancelled.';render()" ${kd&&kd.dw<=10?'':'disabled'}>${knock?'Cancel knock':kd&&!kd.dw?'Gin!':'Knock'}</button>`:phase=='end'||phase=='void'?'<button class="btn" onclick="deal()">Next hand</button>':phase=='over'?'<button class="btn" onclick="sc=[0,0];deal()">New game</button>':'';
+ $('log').innerHTML=msg}
+deal();
+</script></body></html>

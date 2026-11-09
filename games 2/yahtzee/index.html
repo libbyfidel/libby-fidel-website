@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yahtzee · Libby Fidel</title><link rel="icon" href="/brand/libby-mark-teal.svg"><link rel="stylesheet" href="../cards.css">
+<style>.die{width:64px;height:64px;border-radius:12px;border:2px solid #DDD5C8;background:#fff;font-size:52px;line-height:1;cursor:pointer;color:#13292C;padding:0}.die.h{border-color:#FF5B14;background:#FFF1E8}.die:disabled{opacity:.4;cursor:default}
+table{border-collapse:collapse;width:100%;max-width:420px;margin-top:14px}td{padding:7px 10px;border-bottom:1px solid #DDD5C8}td:last-child{text-align:right;font-weight:600}tr.p{cursor:pointer}tr.p td:last-child{color:#006D77;font-style:italic;font-weight:400}tr.p:hover{background:#F1EBE1}tr.t td{background:#006D77;color:#FBF7F0}</style></head>
+<body><main><h1>Yahtzee<b>.</b></h1><p style="color:#5C6664;margin:0 0 12px">Roll up to 3 times, click dice to hold, then pick a box. <a href="/games/">← Games</a></p>
+<div class="row" id="dice" style="min-height:76px"></div><div id="ctl" style="margin-top:8px"></div><table id="tb"></table></main>
+<script>
+const C=['Ones','Twos','Threes','Fours','Fives','Sixes','3 of a kind','4 of a kind','Full house','Small straight','Large straight','Yahtzee','Chance'],F='⚀⚁⚂⚃⚄⚅',$=i=>document.getElementById(i);
+let d,hold,rolls,sc,yb;
+function pts(i){let c=[0,0,0,0,0,0,0];d.forEach(v=>c[v]++);let s=d.reduce((a,b)=>a+b),m=Math.max(...c),u=new Set(d),has=a=>a.every(v=>u.has(v));
+ return i<6?c[i+1]*(i+1):[m>2?s:0,m>3?s:0,c.includes(3)&&c.includes(2)?25:0,[[1,2,3,4],[2,3,4,5],[3,4,5,6]].some(has)?30:0,[[1,2,3,4,5],[2,3,4,5,6]].some(has)?40:0,m==5?50:0,s][i-6]}
+function newGame(){d=[1,2,3,4,5];hold=Array(5).fill(0);rolls=0;sc=Array(13).fill(null);yb=0;render()}
+function roll(){if(rolls>2)return;d=d.map((v,i)=>hold[i]?v:1+Math.random()*6|0);rolls++;render()}
+function tog(i){if(rolls&&rolls<3){hold[i]^=1;render()}}
+function take(i){if(!rolls||sc[i]!=null)return;if(sc[11]==50&&new Set(d).size==1)yb+=100;sc[i]=pts(i);rolls=0;hold.fill(0);render()}
+function render(){let up=sc.slice(0,6).reduce((a,b)=>a+(b||0),0),bon=up>62?35:0,tot=sc.reduce((a,b)=>a+(b||0),0)+bon+yb,done=sc.every(v=>v!=null);
+ $('dice').innerHTML=d.map((v,i)=>`<button class="die${hold[i]?' h':''}" onclick="tog(${i})" ${rolls&&rolls<3?'':'disabled'} aria-label="Die ${v}${hold[i]?', held':''}">${F[v-1]}</button>`).join('');
+ $('ctl').innerHTML=done?`<b>Final score: ${tot}</b> &nbsp;<button class="btn" onclick="newGame()">Play again</button>`:`<button class="btn" onclick="roll()" ${rolls>2?'disabled':''}>${rolls?'Roll again':'Roll'} (${3-rolls} left)</button>`;
+ let row=(i)=>{let open=sc[i]==null&&rolls;return`<tr class="${open?'p':''}" ${open?`onclick="take(${i})"`:''}><td>${C[i]}</td><td>${sc[i]!=null?sc[i]:open?pts(i):''}</td></tr>`};
+ $('tb').innerHTML=[0,1,2,3,4,5].map(row).join('')+`<tr><td>Upper bonus (63+)</td><td>${bon} <small style="color:#5C6664;font-weight:400">${up}/63</small></td></tr>`+[6,7,8,9,10,11,12].map(row).join('')+(yb?`<tr><td>Yahtzee bonus</td><td>${yb}</td></tr>`:'')+`<tr class="t"><td>Total</td><td>${tot}</td></tr>`}
+newGame();
+</script></body></html>

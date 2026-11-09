@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ski Dodge · Libby Fidel</title><link rel="icon" href="/brand/libby-mark-teal.svg">
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#006D77;color:#FBF7F0;font-family:-apple-system,sans-serif;text-align:center}h1{font-family:Georgia,serif;font-weight:400;margin:0 0 4px}h1 b{color:#FF5B14}p{margin:0 0 12px;color:#83C5BE}canvas{background:#FBF7F0;border-radius:14px;max-width:94vw;touch-action:none}a{color:#FFDE7A}</style></head>
+<body><div><h1>Ski Dodge<b>.</b></h1><p>← → or tap left/right to steer. Dodge trees and rocks.</p><canvas id="c" width="360" height="540"></canvas><p style="margin-top:12px"><a href="/games/">← Games</a></p></div>
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d'),W=360,H=540,k={};let p,o,s,v,dead,best=0;
+onkeydown=e=>{k[e.key]=1;if(dead&&(e.key==' '||e.key=='Enter'))reset()};onkeyup=e=>k[e.key]=0;
+c.onpointerdown=e=>{if(dead)return reset();let r=c.getBoundingClientRect();k.t=e.clientX-r.left<r.width/2?-1:1};c.onpointerup=c.onpointerleave=()=>k.t=0;
+function reset(){p=W/2;o=[];s=0;v=3;dead=0}
+function tree(a,b){x.fillStyle='#006D77';x.beginPath();x.moveTo(a,b-22);x.lineTo(a-13,b+10);x.lineTo(a+13,b+10);x.fill();x.fillStyle='#5C6664';x.fillRect(a-2,b+10,4,6)}
+function rock(a,b){x.fillStyle='#B9B1A4';x.beginPath();x.ellipse(a,b,14,9,0,0,7);x.fill()}
+function loop(){if(!dead){let d=(k.ArrowLeft?-1:0)+(k.ArrowRight?1:0)+(k.t||0);p=Math.max(12,Math.min(W-12,p+d*5));s+=v/10;v+=.002;if(Math.random()<.035+v/400)o.push({a:Math.random()*W,b:H+30,t:Math.random()<.7});o.forEach(q=>q.b-=v);o=o.filter(q=>q.b>-30);if(o.some(q=>Math.abs(q.a-p)<15&&Math.abs(q.b-110)<16)){dead=1;best=Math.max(best,s|0)}}
+x.fillStyle='#FBF7F0';x.fillRect(0,0,W,H);o.forEach(q=>q.t?tree(q.a,q.b):rock(q.a,q.b));
+x.fillStyle='#FF5B14';x.beginPath();x.moveTo(p,122);x.lineTo(p-8,100);x.lineTo(p+8,100);x.fill();x.fillStyle='#13292C';x.beginPath();x.arc(p,96,5,0,7);x.fill();
+x.fillStyle='#13292C';x.font='600 16px sans-serif';x.textAlign='left';x.fillText((s|0)+' m',12,26);x.textAlign='right';x.fillText('Best '+best+' m',W-12,26);
+if(dead){x.fillStyle='rgba(19,41,44,.85)';x.fillRect(0,H/2-50,W,100);x.fillStyle='#FBF7F0';x.textAlign='center';x.font='26px Georgia';x.fillText('Wipeout! '+(s|0)+' m',W/2,H/2);x.font='15px sans-serif';x.fillStyle='#FFDE7A';x.fillText('Tap or press Space to ski again',W/2,H/2+28)}
+requestAnimationFrame(loop)}
+reset();loop();
+</script></body></html>
