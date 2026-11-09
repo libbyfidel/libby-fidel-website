@@ -58,3 +58,5 @@ a{color:var(--teal)}img{max-width:100%;display:block}
 .track{align-items:flex-start;padding:4px 4px 10px}
 .slide{flex:0 0 clamp(250px,30vw,360px);width:clamp(250px,30vw,360px);height:auto;aspect-ratio:3/4;border:10px solid #fff;outline:1px solid var(--stone);border-radius:16px;box-shadow:0 14px 30px -18px rgba(19,41,44,.45)}
 .slide img{border-radius:8px}.slide figcaption{left:0;right:0;bottom:0;border-radius:0 0 8px 8px}
+.slide{border:6px solid var(--teal);outline:none;border-radius:18px;box-shadow:0 0 0 1px var(--teal),0 16px 30px -18px rgba(0,109,119,.55);background:var(--teal)}
+.slide img{border-radius:12px}
