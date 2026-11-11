@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your raise runs on the fund's clock — Libby Fidel</title>
+<meta name="description" content="How a venture fund is built, how its 10-year life works, and why the year you pitch changes what a VC needs from you.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.org{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 4px}
+.org button{all:unset;cursor:pointer;background:var(--cream);border:1px solid var(--stone);border-radius:10px;padding:16px;text-align:center}
+.org button[aria-pressed=true]{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.org .t{font:600 18px/1.2 var(--serif)}
+.org .s{font-size:13px;color:var(--slate);margin-top:4px}
+.org-flow{display:flex;justify-content:center;align-items:center;gap:8px;font:400 12px/1 var(--mono);color:var(--slate);margin:14px 0}
+.org-detail{background:var(--cream);border-radius:10px;padding:16px 18px;min-height:96px;font-size:16px}
+
+.timeline{position:relative;margin:8px 0 18px}
+.phases{display:grid;grid-template-columns:1fr 5fr 5fr 3fr;gap:4px}
+.phase{height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;font:400 11px/1.1 var(--mono);text-transform:uppercase;letter-spacing:.05em;text-align:center;padding:0 4px;transition:opacity .2s}
+.p0{background:var(--stone);color:var(--ink)}
+.p1{background:var(--teal);color:var(--cream)}
+.p2{background:var(--seafoam);color:var(--ink)}
+.p3{background:var(--ink);color:var(--cream)}
+.phase.dim{opacity:.35}
+.years{display:grid;grid-template-columns:repeat(14,1fr);font:400 11px/1 var(--mono);color:var(--slate);margin-top:8px}
+.years span{text-align:center}
+.readout{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:20px}
+.readout .card{background:var(--cream);border:1px solid var(--stone);border-radius:10px;padding:18px}
+.readout h4{margin:0 0 6px;font:600 20px/1.25 var(--serif)}
+.meter{height:10px;background:var(--stone);border-radius:999px;overflow:hidden;margin:10px 0 4px}
+.meter i{display:block;height:100%;background:var(--teal);transition:width .25s}
+@media(max-width:720px){.org{grid-template-columns:1fr}.readout{grid-template-columns:1fr}.phase{font-size:9px}}
+</style>
+<link rel="stylesheet" href="/assets/header.css">
+</head>
+<body>
+<header class="topbar progress-holder" style="height:0;border:0"><div class="progress"></div></header><div class="band hdr"><div class="hdr-top"><a class="hdr-logo" href="/"><img src="/brand/libby-mark-teal.svg" alt="Libby Fidel home"></a></div><nav class="hdr-nav" aria-label="Main"><span class="ristra" style="--img:url(/assets/chiles/ristra-05.webp);--rh:440px;--tw:36px;--rot:-1.6deg;--dur:3.20s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async" fetchpriority=high></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-03.webp);--rh:400px;--tw:64px;--rot:1.2deg;--dur:3.57s;--delay:-0.9s" aria-hidden="true"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async" fetchpriority=high></span><span class="ristra" style="--img:url(/assets/chiles/ristra-06.webp);--rh:430px;--tw:48px;--rot:-0.7deg;--dur:3.94s;--delay:-1.8s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async" fetchpriority=high></span><a class="ristra nav-item" href="/writing/" style="--img:url(/assets/chiles/ristra-02.webp);--rh:400px;--tw:48px;--rot:-0.8deg;--dur:4.31s;--delay:-2.7s"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:-2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp1" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp1" startOffset="50%">Writing</textPath></text></svg><span class="lbl">Writing</span></a><a class="ristra nav-item flip" href="/sf/" style="--img:url(/assets/chiles/ristra-04.webp);--rh:440px;--tw:58px;--rot:1.5deg;--dur:3.28s;--delay:-0.6s"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:1.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp2" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp2" startOffset="50%">Life in SF</textPath></text></svg><span class="lbl">Life in SF</span></a><a class="ristra nav-item flip" href="/games/" style="--img:url(/assets/chiles/ristra-01.webp);--rh:380px;--tw:44px;--rot:-1.9deg;--dur:3.65s;--delay:-1.5s"><img src="/assets/chiles/ristra-01.webp" alt="" width="367" height="1000" decoding="async"><svg class="bow" style="--brot:-1deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp3" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp3" startOffset="50%">Games</textPath></text></svg><span class="lbl">Games</span></a><a class="ristra nav-item flip" href="/#about" style="--img:url(/assets/chiles/ristra-05.webp);--rh:420px;--tw:56px;--rot:0.6deg;--dur:4.02s;--delay:-2.4s"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async"><svg class="bow" style="--brot:2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp4" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp4" startOffset="50%">About</textPath></text></svg><span class="lbl">About</span></a><a class="ristra nav-item" href="/#contact" style="--img:url(/assets/chiles/ristra-03.webp);--rh:390px;--tw:46px;--rot:1.1deg;--dur:4.39s;--delay:-0.3s"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async"><svg class="bow" style="--brot:-2deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp5" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp5" startOffset="50%">Contact</textPath></text></svg><span class="lbl">Contact</span></a><span class="ristra flip" style="--img:url(/assets/chiles/ristra-06.webp);--rh:420px;--tw:68px;--rot:-1.3deg;--dur:3.36s;--delay:-1.2s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async"></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-02.webp);--rh:380px;--tw:40px;--rot:1.7deg;--dur:3.73s;--delay:-2.1s" aria-hidden="true"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async"></span><span class="ristra" style="--img:url(/assets/chiles/ristra-04.webp);--rh:460px;--tw:52px;--rot:-1.1deg;--dur:4.10s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async"></span></nav></div>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Lab to Term Sheet · Part 1 of 5</div>
+  <h1>Your raise runs on <span class="hl">the fund's clock</span></h1>
+  <p class="dek">Before you pitch a VC, understand the vehicle writing the check. Its structure and its age shape what it can say yes to.</p>
+  <div class="meta"><span class="eyebrow">6 min read</span><span class="eyebrow">Interactive</span><span class="eyebrow">Venture · Fundamentals</span></div>
+</div></section>
+
+<article>
+<div class="prose">
+  <p class="lede">Most technical founders treat "a VC" as a single decision-maker. It isn't. Each check comes from a fund: a pool of other people's money with a fixed lifespan and a fixed job, which is to return more than went in before time runs out.</p>
+  <p>That has real consequences for a deep-tech company. Your timeline to revenue is measured in years, sometimes many of them. If you don't know where a fund sits in its life, you can't tell whether your timeline fits it.</p>
+
+  <h2>Three players, one vehicle</h2>
+  <p>Every venture fund has the same basic structure. Click through the pieces.</p>
+</div>
+
+<div class="lab" id="org-lab">
+  <div class="lab-head"><h3>Who's actually in the room</h3><span class="tag">Click to explore</span></div>
+  <div class="org" role="group" aria-label="Fund participants">
+    <button data-k="lp" aria-pressed="true"><div class="t">Limited partners</div><div class="s">The money</div></button>
+    <button data-k="gp" aria-pressed="false"><div class="t">General partners</div><div class="s">The decisions</div></button>
+    <button data-k="firm" aria-pressed="false"><div class="t">The firm</div><div class="s">The machine</div></button>
+  </div>
+  <div class="org-flow">LPs commit capital → the fund → GPs invest it → startups → returns flow back</div>
+  <div class="org-detail" id="org-detail" aria-live="polite"></div>
+</div>
+
+<div class="prose">
+  <h2>The 10-year clock</h2>
+  <p>A typical fund is built to last about ten years, often with an option to extend by a year or two. The first several years, called the <em>commitment period</em>, are when the fund writes new checks. After that it can only support the companies it already owns. In the final stretch, the focus moves to getting money back through acquisitions, IPOs, or secondary sales.</p>
+  <p>Drag the slider to see how the same pitch lands at different points in a fund's life.</p>
+</div>
+
+<div class="lab" id="clock-lab">
+  <div class="lab-head"><h3>Pitch a fund in year…</h3><span class="tag">Drag the slider</span></div>
+  <div class="timeline">
+    <div class="phases">
+      <div class="phase p0" data-p="0">Raise</div>
+      <div class="phase p1" data-p="1">Commitment period</div>
+      <div class="phase p2" data-p="2">Follow-on period</div>
+      <div class="phase p3" data-p="3">Exits</div>
+    </div>
+    <div class="years" aria-hidden="true"><span>Y0</span><span>Y1</span><span>Y2</span><span>Y3</span><span>Y4</span><span>Y5</span><span>Y6</span><span>Y7</span><span>Y8</span><span>Y9</span><span>Y10</span><span>Y11</span><span>Y12</span><span>Y13</span></div>
+  </div>
+  <label class="ctl"><span class="ctl-row"><span>Fund year</span><b id="yr-out">Year 2</b></span>
+    <input type="range" id="yr" min="0" max="13" value="2" aria-label="Fund year">
+  </label>
+  <div class="readout">
+    <div class="card"><div class="eyebrow" id="ph-name">Commitment period</div><h4 id="ph-head"></h4><p class="small" id="ph-body" style="margin:0;color:var(--ink);font-size:15px"></p></div>
+    <div class="card">
+      <div class="eyebrow">Runway to an exit</div>
+      <div class="stat" style="border:0;padding:6px 0 0;background:none"><div class="num" id="runway">8 yrs</div></div>
+      <div class="meter"><i id="runway-bar"></i></div>
+      <div class="small" id="fit">Comfortable for most hard-tech timelines.</div>
+    </div>
+  </div>
+</div>
+
+<div class="prose">
+  <h2>What this means for deep tech</h2>
+  <p>Hardware, materials, energy, and bio companies often need five or more years before the business looks like a business. That's fine early in a fund's life, when there's room for a long build. Pitch a fund in year four or five and the same company has to hit commercial milestones much faster, and the GP may push you harder than your technology can handle.</p>
+  <p class="pull">Before your first meeting, ask: "When did this fund close, and how much is left for new investments?"</p>
+  <p>It's a normal question, and good investors will answer it straight. Fund vintage and remaining reserves are usually easy to find, either in the firm's own announcements or in a quick diligence call with founders they've backed.</p>
+
+  <div class="takeaways">
+    <div class="eyebrow">Takeaways</div>
+    <ul>
+      <li>A VC check comes from a <b>fund with a deadline</b>, not from an open-ended pot.</li>
+      <li>New checks happen mostly in the <b>first ~5 years</b>; after that, funds back their existing portfolio.</li>
+      <li>For long-build companies, <b>early-vintage funds</b> are a much better fit.</li>
+    </ul>
+  </div>
+
+  <nav class="pager">
+    <a href="../index.html"><span class="eyebrow">← Playbook</span><h3>All five parts</h3></a>
+    <a class="next" href="02-power-law.html"><span class="eyebrow">Next →</span><h3>Seventeen out of twenty</h3></a>
+  </nav>
+
+  <div class="sources"><div class="eyebrow">Sources & further reading</div>
+    <ul><li>Brad Feld & Jason Mendelson, <em>Venture Deals</em></li><li>NVCA Yearbook</li><li>Jay Ritter, VC-backed IPO statistics</li></ul>
+  </div>
+</div>
+</article>
+
+<footer><div class="wrap"><span>© Libby Fidel</span><a href="../index.html">Lab to Term Sheet: the playbook</a></div></footer>
+
+<script src="../assets/site.js"></script>
+<script>
+(function(){
+  var org={
+    lp:'<b>Limited partners (LPs)</b> put up nearly all of the capital but take no part in day-to-day decisions. Think pension funds, university endowments, foundations, family offices, and wealthy individuals. They expect outsized returns in exchange for locking money up for a decade.',
+    gp:'<b>General partners (GPs)</b> make the investment calls and usually put in a small slice of their own money. They\'re the people who take your meeting, sit on your board, and have to explain returns to their LPs.',
+    firm:'<b>The firm</b> is the management company: the brand, the staff, the platform team. One firm often runs several funds at once, each at a different age. That\'s why the same firm can be eager in one conversation and cautious in the next.'
+  };
+  var btns=document.querySelectorAll('.org button'),det=document.getElementById('org-detail');
+  function show(k){btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k)});det.innerHTML=org[k]}
+  btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.k)})});show('lp');
+
+  var phases=[
+    {n:'Fundraising',h:'The fund is still raising',b:'The GPs are pitching LPs, not writing checks yet. Build the relationship now. Some firms will commit to a first close or invest out of a prior fund.'},
+    {n:'Commitment period',h:'Actively hunting',b:'This is prime time. The fund needs to deploy capital into new companies and has the most patience for long technical roadmaps.'},
+    {n:'Late commitment period',h:'Still investing, with conditions',b:'New checks are possible, but expect tighter milestones and a sharper focus on how fast you can reach a sale or IPO.'},
+    {n:'Follow-on period',h:'Doors closing to new companies',b:'The fund mostly backs its existing portfolio now. A new deep-tech bet is unlikely. Look for this firm\'s next fund instead.'},
+    {n:'Exit / extension',h:'Harvest mode',b:'The fund is selling positions and returning capital. It is irrelevant for new raises, but its GPs may be fundraising their next vehicle.'}
+  ];
+  var yr=document.getElementById('yr'),out=document.getElementById('yr-out');
+  function upd(){
+    var y=+yr.value, p, pi;
+    if(y===0){p=phases[0];pi=0}else if(y<=3){p=phases[1];pi=1}else if(y<=5){p=phases[2];pi=1}else if(y<=10){p=phases[3];pi=2}else{p=phases[4];pi=3}
+    out.textContent='Year '+y;
+    document.getElementById('ph-name').textContent=p.n;
+    document.getElementById('ph-head').textContent=p.h;
+    document.getElementById('ph-body').textContent=p.b;
+    document.querySelectorAll('.phase').forEach(function(el){el.classList.toggle('dim',+el.dataset.p!==pi)});
+    var run=Math.max(0,10-y);
+    document.getElementById('runway').textContent=y>5?'—':(run+' yrs');
+    document.getElementById('runway-bar').style.width=(y>5?0:run*10)+'%';
+    document.getElementById('fit').textContent = y===0?'Long runway, if you can get in at the first close.' : y<=3?'Comfortable for most hard-tech timelines.' : y<=5?'Tight for hardware, materials, or bio. Expect pressure.' : 'Not investing in new companies.';
+  }
+  yr.addEventListener('input',upd);upd();
+})();
+</script>
+</body>
+</html>

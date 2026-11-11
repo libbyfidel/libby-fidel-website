@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before you raise: build a capital stack — Libby Fidel</title>
+<meta name="description" content="Venture is one tool, not the only one. Explore non-dilutive and equity options, see what dilution really costs, and learn how to size a market that doesn't exist yet.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.filters{margin-bottom:16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.fcard{background:var(--cream);border:1px solid var(--stone);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.fcard[hidden]{display:none}
+.fcard h4{margin:0;font:600 18px/1.25 var(--serif)}
+.fcard p{margin:0;font-size:14px;line-height:1.45;color:var(--slate)}
+.pill{align-self:flex-start;font:400 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;padding:5px 8px;border-radius:999px}
+.pill.nd{background:var(--seafoam);color:var(--ink)}
+.pill.eq{background:var(--ink);color:var(--butter)}
+.pill.dt{background:var(--stone);color:var(--ink)}
+.fcard dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:4px 0 0;font-size:13px}
+.fcard dt{font:400 11px/1.6 var(--mono);text-transform:uppercase;color:var(--slate)}
+.fcard dd{margin:0}
+table.rounds{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:14px}
+table.rounds th{font:400 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--slate);text-align:left;padding:8px 6px;border-bottom:1px solid var(--stone)}
+table.rounds td{padding:8px 6px;border-bottom:1px solid var(--stone);vertical-align:middle}
+table.rounds input[type=number]{width:100%;max-width:110px;font:400 15px/1 var(--sans);padding:8px;border:1px solid var(--stone);border-radius:8px;background:var(--cream)}
+table.rounds td.own{font:400 20px/1 var(--serif);color:var(--teal);font-variant-numeric:tabular-nums}
+.bars{display:flex;gap:10px;align-items:flex-end;height:170px;margin:14px 0 4px}
+.bars .b{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
+.bars .b i{display:block;width:100%;background:var(--teal);border-radius:6px 6px 0 0;transition:height .3s}
+.bars .b span{font:400 11px/1.3 var(--mono);color:var(--slate);margin-top:6px;text-align:center}
+.bars .b em{font:400 15px/1 var(--serif);font-style:normal;margin-bottom:6px}
+.toggle{display:flex;align-items:center;gap:10px;font-size:15px;background:var(--cream);border:1px solid var(--stone);border-radius:10px;padding:12px 14px;margin:6px 0 4px}
+.toggle input{width:18px;height:18px;accent-color:var(--teal)}
+.approach{border-top:1px solid var(--stone)}
+.approach:last-child{border-bottom:1px solid var(--stone)}
+.approach button{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;padding:16px 0;font:600 19px/1.3 var(--serif)}
+.approach button:focus-visible{outline:2px solid var(--teal)}
+.approach button span{font:400 12px/1 var(--mono);color:var(--slate)}
+.approach .body{display:none;padding:0 0 18px;font-size:16px}
+.approach.open .body{display:block}
+.approach.open button span{color:var(--teal)}
+</style>
+<link rel="stylesheet" href="/assets/header.css">
+</head>
+<body>
+<header class="topbar progress-holder" style="height:0;border:0"><div class="progress"></div></header><div class="band hdr"><div class="hdr-top"><a class="hdr-logo" href="/"><img src="/brand/libby-mark-teal.svg" alt="Libby Fidel home"></a></div><nav class="hdr-nav" aria-label="Main"><span class="ristra" style="--img:url(/assets/chiles/ristra-05.webp);--rh:440px;--tw:36px;--rot:-1.6deg;--dur:3.20s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async" fetchpriority=high></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-03.webp);--rh:400px;--tw:64px;--rot:1.2deg;--dur:3.57s;--delay:-0.9s" aria-hidden="true"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async" fetchpriority=high></span><span class="ristra" style="--img:url(/assets/chiles/ristra-06.webp);--rh:430px;--tw:48px;--rot:-0.7deg;--dur:3.94s;--delay:-1.8s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async" fetchpriority=high></span><a class="ristra nav-item" href="/writing/" style="--img:url(/assets/chiles/ristra-02.webp);--rh:400px;--tw:48px;--rot:-0.8deg;--dur:4.31s;--delay:-2.7s"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:-2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp1" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp1" startOffset="50%">Writing</textPath></text></svg><span class="lbl">Writing</span></a><a class="ristra nav-item flip" href="/sf/" style="--img:url(/assets/chiles/ristra-04.webp);--rh:440px;--tw:58px;--rot:1.5deg;--dur:3.28s;--delay:-0.6s"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:1.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp2" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp2" startOffset="50%">Life in SF</textPath></text></svg><span class="lbl">Life in SF</span></a><a class="ristra nav-item flip" href="/games/" style="--img:url(/assets/chiles/ristra-01.webp);--rh:380px;--tw:44px;--rot:-1.9deg;--dur:3.65s;--delay:-1.5s"><img src="/assets/chiles/ristra-01.webp" alt="" width="367" height="1000" decoding="async"><svg class="bow" style="--brot:-1deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp3" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp3" startOffset="50%">Games</textPath></text></svg><span class="lbl">Games</span></a><a class="ristra nav-item flip" href="/#about" style="--img:url(/assets/chiles/ristra-05.webp);--rh:420px;--tw:56px;--rot:0.6deg;--dur:4.02s;--delay:-2.4s"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async"><svg class="bow" style="--brot:2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp4" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp4" startOffset="50%">About</textPath></text></svg><span class="lbl">About</span></a><a class="ristra nav-item" href="/#contact" style="--img:url(/assets/chiles/ristra-03.webp);--rh:390px;--tw:46px;--rot:1.1deg;--dur:4.39s;--delay:-0.3s"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async"><svg class="bow" style="--brot:-2deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp5" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp5" startOffset="50%">Contact</textPath></text></svg><span class="lbl">Contact</span></a><span class="ristra flip" style="--img:url(/assets/chiles/ristra-06.webp);--rh:420px;--tw:68px;--rot:-1.3deg;--dur:3.36s;--delay:-1.2s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async"></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-02.webp);--rh:380px;--tw:40px;--rot:1.7deg;--dur:3.73s;--delay:-2.1s" aria-hidden="true"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async"></span><span class="ristra" style="--img:url(/assets/chiles/ristra-04.webp);--rh:460px;--tw:52px;--rot:-1.1deg;--dur:4.10s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async"></span></nav></div>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Lab to Term Sheet · Part 5 of 5</div>
+  <h1>Before you raise, <span class="hl">build a capital stack</span></h1>
+  <p class="dek">Venture is one tool, not the whole toolbox. Mix funding sources so that, when you do take a VC check, it's on your terms.</p>
+  <div class="meta"><span class="eyebrow">6 min read</span><span class="eyebrow">Interactive</span><span class="eyebrow">Fundraising · Strategy</span></div>
+</div></section>
+
+<article>
+<div class="prose">
+  <p class="lede">It's tempting to raise as much venture capital as you can, as fast as you can. For hard-tech companies that's often a mistake. Each equity round buys speed, and you pay for it with ownership and a growth curve someone else has set.</p>
+  <p>The best technical founders I know treat funding as a stack: they layer cheaper, non-dilutive capital under the equity, and use each kind for the job it does best.</p>
+
+  <h2>What's in the toolbox</h2>
+</div>
+
+<div class="lab" id="tool-lab">
+  <div class="lab-head"><h3>Funding sources for deep tech</h3>
+    <div class="seg filters" role="group" aria-label="Filter"><button data-f="all" aria-pressed="true">All</button><button data-f="nd" aria-pressed="false">Non-dilutive</button><button data-f="dt" aria-pressed="false">Debt</button><button data-f="eq" aria-pressed="false">Equity</button></div>
+  </div>
+  <div class="cards" id="cards"></div>
+  <p class="small" style="margin-top:14px">Program sizes and rules change often. Check current terms with each program before you plan around them.</p>
+</div>
+
+<div class="prose">
+  <h2>What dilution actually costs</h2>
+  <p>Each equity round sells part of the company. Edit the rounds below, then tick the box to swap your first raise for a grant and see how much ownership that keeps in your hands.</p>
+</div>
+
+<div class="lab" id="dil-lab">
+  <div class="lab-head"><h3>Founder ownership calculator</h3><span class="tag">Edit the numbers</span></div>
+  <table class="rounds">
+    <thead><tr><th>Round</th><th>Raise ($M)</th><th>Post-money ($M)</th><th>Founders own after</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <label class="toggle"><input type="checkbox" id="grant"> Fund the pre-seed with a non-dilutive grant instead of equity</label>
+  <div class="bars" id="bars" aria-hidden="true"></div>
+  <div class="stats" style="margin-top:12px">
+    <div class="stat"><div class="num" id="final">–</div><div class="lbl">Founders' stake after Series A</div></div>
+    <div class="stat"><div class="num" id="worth">–</div><div class="lbl">Value of that stake at Series A post-money</div></div>
+    <div class="stat"><div class="num" id="delta">–</div><div class="lbl">Ownership kept by using a grant</div></div>
+  </div>
+  <p class="small" style="margin-top:12px">Simplified: this ignores option-pool expansions, pro-rata rights, and SAFE conversion mechanics, all of which usually push founder ownership lower.</p>
+</div>
+
+<div class="prose">
+  <h2>When the market doesn't exist yet</h2>
+  <p>Whatever money you go after, someone will ask how big the market is. For new technologies the honest answer is often "small today." That's fine, as long as you can show how it gets big. There are four common ways to make that case:</p>
+  <div id="approaches">
+    <div class="approach open"><button aria-expanded="true">Top-down sizing <span>01</span></button><div class="body">Show the market is larger than it first looks: the growth rate, new geographies, and adjacent segments that reach the same buyer. Start with credible industry data and narrow down to the part you can actually serve.</div></div>
+    <div class="approach"><button aria-expanded="false">Bottom-up sizing <span>02</span></button><div class="body">Build up from the units: number of target customers × what they would pay × realistic share. Investors usually trust this more than top-down numbers because every assumption can be checked. Back each one with interviews or public data.</div></div>
+    <div class="approach"><button aria-expanded="false">Scope expansion <span>03</span></button><div class="body">Lay out the sequence: a beachhead market you can win now, and the milestones that unlock bigger, higher-value markets later. Your why-ladder from <a href="04-why-ladder.html">Part 4</a> is often the map.</div></div>
+    <div class="approach"><button aria-expanded="false">Trend alignment <span>04</span></button><div class="body">Attach yourself to a big shift investors already believe in (electrification, AI compute demand, reshoring, decarbonization) and show why that shift gives you unusually high share or pricing power.</div></div>
+  </div>
+
+  <div class="takeaways">
+    <div class="eyebrow">Takeaways</div>
+    <ul>
+      <li>Use <b>non-dilutive capital</b> to de-risk the technology; use equity to scale it.</li>
+      <li>Early dilution <b>compounds</b>. The cheapest dollars are the first ones.</li>
+      <li>For new markets, sell <b>the path to big</b>, not today's size.</li>
+    </ul>
+  </div>
+
+  <nav class="pager">
+    <a href="04-why-ladder.html"><span class="eyebrow">← Previous</span><h3>Why do people care?</h3></a>
+    <a class="next" href="../index.html"><span class="eyebrow">Back to →</span><h3>The full playbook</h3></a>
+  </nav>
+
+  <div class="sources"><div class="eyebrow">Sources & further reading</div>
+    <ul><li>Brad Feld & Jason Mendelson, <em>Venture Deals</em></li><li>U.S. SBIR/STTR program (sbir.gov)</li><li>Y Combinator, SAFE documentation</li></ul>
+  </div>
+</div>
+</article>
+
+<footer><div class="wrap"><span>© Libby Fidel</span><a href="../index.html">Lab to Term Sheet: the playbook</a></div></footer>
+
+<script src="../assets/site.js"></script>
+<script>
+(function(){
+  var F=[
+    {f:'nd',t:'Government R&D grants',d:'SBIR/STTR and agency programs (DOE, NSF, DoD, NIH) that fund technical risk-reduction.',size:'$100Ks – low $Ms',best:'Proving the tech',str:'Reporting, milestones'},
+    {f:'nd',t:'Fellowships & incubator programs',d:'Programs that pay technical founders to commercialize research, often with lab access and mentors.',size:'$10Ks – $100Ks',best:'Pre-company',str:'Program time'},
+    {f:'nd',t:'Pitch competitions & prizes',d:'Cash plus visibility. Useful early validation, but hard to plan around.',size:'$1Ks – $100Ks',best:'Earliest stage',str:'Few'},
+    {f:'nd',t:'Paid pilots & customer revenue',d:'The best money there is: it funds the company and proves demand at the same time.',size:'Varies',best:'Validation onward',str:'Delivery'},
+    {f:'nd',t:'Strategic partnerships',d:'Joint development deals with industry partners who fund work they want to use.',size:'$100Ks – $Ms',best:'Validation, creation',str:'IP and exclusivity terms'},
+    {f:'nd',t:'Crowdfunding',d:'Pre-sales or reward campaigns. Works best when the product is consumer-facing.',size:'$10Ks – $Ms',best:'Pre-launch',str:'Fulfillment'},
+    {f:'dt',t:'SBA & bank loans',d:'Conventional debt. Hard to get before revenue or assets, but it doesn\'t touch your cap table.',size:'$10Ks – $Ms',best:'Revenue stage',str:'Repayment, guarantees'},
+    {f:'dt',t:'Venture debt',d:'Loans to venture-backed companies, usually alongside an equity round to extend runway.',size:'$Ms',best:'Post-seed / A',str:'Interest, warrants'},
+    {f:'dt',t:'Convertible notes',d:'A loan that converts into equity at a later round, usually at a discount or under a valuation cap.',size:'$100Ks – $Ms',best:'Pre-seed / seed',str:'Interest, maturity date'},
+    {f:'eq',t:'SAFEs',d:'A simple agreement for future equity. It\'s not debt: it converts to shares in a later priced round.',size:'$100Ks – $Ms',best:'Pre-seed / seed',str:'Cap & discount'},
+    {f:'eq',t:'Priced equity rounds',d:'Preferred stock sold at a set valuation, with board seats and investor rights.',size:'$Ms – $100Ms',best:'Seed onward',str:'Dilution, governance'},
+    {f:'eq',t:'Corporate venture capital',d:'Equity from a strategic\'s investment arm, often bundled with a commercial relationship.',size:'$Ms',best:'Seed – growth',str:'Signaling, info rights'}
+  ];
+  var lab={nd:'Non-dilutive',dt:'Debt',eq:'Equity'};
+  var wrap=document.getElementById('cards');
+  F.forEach(function(x){
+    var c=document.createElement('div');c.className='fcard';c.dataset.f=x.f;
+    c.innerHTML='<span class="pill '+x.f+'">'+lab[x.f]+'</span><h4>'+x.t+'</h4><p>'+x.d+'</p><dl><dt>Size</dt><dd>'+x.size+'</dd><dt>Best for</dt><dd>'+x.best+'</dd><dt>Strings</dt><dd>'+x.str+'</dd></dl>';
+    wrap.appendChild(c);
+  });
+  document.querySelectorAll('[data-f]').forEach(function(b){b.addEventListener('click',function(){
+    document.querySelectorAll('[data-f]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    document.querySelectorAll('.fcard').forEach(function(c){c.hidden=!(b.dataset.f==='all'||c.dataset.f===b.dataset.f)});
+  })});
+
+  var R=[{n:'Pre-seed',r:1,p:8},{n:'Seed',r:3,p:15},{n:'Series A',r:10,p:50}];
+  var tb=document.getElementById('rows');
+  R.forEach(function(x,i){
+    var tr=document.createElement('tr');
+    tr.innerHTML='<td>'+x.n+'</td><td><input type="number" min="0" step="0.25" value="'+x.r+'" aria-label="'+x.n+' raise"></td><td><input type="number" min="0.5" step="0.5" value="'+x.p+'" aria-label="'+x.n+' post-money"></td><td class="own">–</td>';
+    var ins=tr.querySelectorAll('input');
+    ins[0].addEventListener('input',function(){x.r=Math.max(0,+this.value||0);calc()});
+    ins[1].addEventListener('input',function(){x.p=Math.max(0.01,+this.value||0.01);calc()});
+    tb.appendChild(tr);
+  });
+  var grant=document.getElementById('grant');grant.addEventListener('change',calc);
+  function run(useGrant){var o=1,out=[];R.forEach(function(x,i){var r=(useGrant&&i===0)?0:Math.min(x.r,x.p);o*=1-r/x.p;out.push(o)});return out}
+  function pct(v){return (v*100).toFixed(1)+'%'}
+  function calc(){
+    var g=grant.checked, res=run(g), base=run(false), withG=run(true);
+    tb.querySelectorAll('tr').forEach(function(tr,i){tr.querySelector('.own').textContent=pct(res[i]);tr.style.opacity=(g&&i===0)?.5:1});
+    var bars=document.getElementById('bars');bars.innerHTML='';
+    [{l:'Founding',v:1}].concat(R.map(function(x,i){return{l:'After '+x.n,v:res[i]}})).forEach(function(b){
+      var d=document.createElement('div');d.className='b';d.innerHTML='<em>'+Math.round(b.v*100)+'%</em><i style="height:'+(b.v*80)+'%"></i><span>'+b.l+'</span>';bars.appendChild(d);
+    });
+    var f=res[res.length-1];
+    document.getElementById('final').textContent=pct(f);
+    document.getElementById('worth').textContent='$'+(f*R[2].p).toFixed(1)+'M';
+    document.getElementById('delta').textContent='+'+((withG[2]-base[2])*100).toFixed(1)+' pts';
+  }
+  calc();
+
+  document.querySelectorAll('.approach button').forEach(function(b){b.addEventListener('click',function(){
+    var a=b.parentElement,open=!a.classList.contains('open');a.classList.toggle('open',open);b.setAttribute('aria-expanded',open);
+  })});
+})();
+</script>
+</body>
+</html>

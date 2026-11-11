@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is it venture-backable? — Libby Fidel</title>
+<meta name="description" content="Nine questions every VC is silently asking about your company. Score yourself honestly and see where the gaps are.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.crit{display:grid;grid-template-columns:28px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-top:1px solid var(--stone)}
+.crit:first-of-type{border-top:0}
+.crit .n{font:400 12px/1 var(--mono);color:var(--slate)}
+.crit h4{margin:0;font:600 18px/1.3 var(--serif)}
+.crit p{margin:4px 0 0;font-size:15px;color:var(--slate);line-height:1.45}
+.group-label{font:400 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--teal);margin:22px 0 4px}
+.result{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center;background:var(--ink);color:var(--cream);border-radius:12px;padding:24px;margin-top:22px}
+.ring{position:relative;width:180px;height:180px}
+.ring svg{transform:rotate(-90deg)}
+.ring .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .c b{font:400 48px/1 var(--serif);color:var(--cream)}
+.ring .c span{font:400 11px/1.4 var(--mono);color:var(--pebble);text-transform:uppercase;letter-spacing:.08em}
+.result h4{font:400 26px/1.25 var(--serif);margin:0 0 8px}
+.result h4 em{color:var(--butter)}
+.result p{margin:0;color:var(--stone);font-size:16px}
+.gaps{margin-top:18px}
+.gap{background:var(--cream);border:1px solid var(--stone);border-left:4px solid var(--teal);border-radius:8px;padding:14px 16px;margin-bottom:10px;font-size:15px}
+.gap b{font-weight:500}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+#copybox{display:none;margin-top:10px;font:400 13px/1.5 var(--mono);height:150px}
+@media(max-width:720px){.crit{grid-template-columns:1fr}.crit .n{display:none}.result{grid-template-columns:1fr;justify-items:center;text-align:center}}
+</style>
+<link rel="stylesheet" href="/assets/header.css">
+</head>
+<body>
+<header class="topbar progress-holder" style="height:0;border:0"><div class="progress"></div></header><div class="band hdr"><div class="hdr-top"><a class="hdr-logo" href="/"><img src="/brand/libby-mark-teal.svg" alt="Libby Fidel home"></a></div><nav class="hdr-nav" aria-label="Main"><span class="ristra" style="--img:url(/assets/chiles/ristra-05.webp);--rh:440px;--tw:36px;--rot:-1.6deg;--dur:3.20s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async" fetchpriority=high></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-03.webp);--rh:400px;--tw:64px;--rot:1.2deg;--dur:3.57s;--delay:-0.9s" aria-hidden="true"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async" fetchpriority=high></span><span class="ristra" style="--img:url(/assets/chiles/ristra-06.webp);--rh:430px;--tw:48px;--rot:-0.7deg;--dur:3.94s;--delay:-1.8s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async" fetchpriority=high></span><a class="ristra nav-item" href="/writing/" style="--img:url(/assets/chiles/ristra-02.webp);--rh:400px;--tw:48px;--rot:-0.8deg;--dur:4.31s;--delay:-2.7s"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:-2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp1" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp1" startOffset="50%">Writing</textPath></text></svg><span class="lbl">Writing</span></a><a class="ristra nav-item flip" href="/sf/" style="--img:url(/assets/chiles/ristra-04.webp);--rh:440px;--tw:58px;--rot:1.5deg;--dur:3.28s;--delay:-0.6s"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:1.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp2" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp2" startOffset="50%">Life in SF</textPath></text></svg><span class="lbl">Life in SF</span></a><a class="ristra nav-item flip" href="/games/" style="--img:url(/assets/chiles/ristra-01.webp);--rh:380px;--tw:44px;--rot:-1.9deg;--dur:3.65s;--delay:-1.5s"><img src="/assets/chiles/ristra-01.webp" alt="" width="367" height="1000" decoding="async"><svg class="bow" style="--brot:-1deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp3" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp3" startOffset="50%">Games</textPath></text></svg><span class="lbl">Games</span></a><a class="ristra nav-item flip" href="/#about" style="--img:url(/assets/chiles/ristra-05.webp);--rh:420px;--tw:56px;--rot:0.6deg;--dur:4.02s;--delay:-2.4s"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async"><svg class="bow" style="--brot:2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp4" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp4" startOffset="50%">About</textPath></text></svg><span class="lbl">About</span></a><a class="ristra nav-item" href="/#contact" style="--img:url(/assets/chiles/ristra-03.webp);--rh:390px;--tw:46px;--rot:1.1deg;--dur:4.39s;--delay:-0.3s"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async"><svg class="bow" style="--brot:-2deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp5" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp5" startOffset="50%">Contact</textPath></text></svg><span class="lbl">Contact</span></a><span class="ristra flip" style="--img:url(/assets/chiles/ristra-06.webp);--rh:420px;--tw:68px;--rot:-1.3deg;--dur:3.36s;--delay:-1.2s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async"></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-02.webp);--rh:380px;--tw:40px;--rot:1.7deg;--dur:3.73s;--delay:-2.1s" aria-hidden="true"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async"></span><span class="ristra" style="--img:url(/assets/chiles/ristra-04.webp);--rh:460px;--tw:52px;--rot:-1.1deg;--dur:4.10s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async"></span></nav></div>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Lab to Term Sheet · Part 3 of 5</div>
+  <h1>Is it <span class="hl">venture-backable?</span></h1>
+  <p class="dek">Nine questions every VC asks silently in the first meeting. Answer them honestly before anyone else does.</p>
+  <div class="meta"><span class="eyebrow">4 min read · 3 min quiz</span><span class="eyebrow">Interactive</span><span class="eyebrow">Fundraising · Self-assessment</span></div>
+</div></section>
+
+<article>
+<div class="prose">
+  <p class="lede">A company can be important, technically brilliant, and profitable, and still be a bad fit for venture capital. That isn't a judgment of the work. It's a mismatch between the company's shape and what a fund's math requires (see <a href="02-power-law.html">Part 2</a>).</p>
+  <p>Here are the nine criteria I see investors use over and over, grouped into three questions: <em>Can it get big? Is it real? Can it last?</em> Rate yourself on each one. "Not yet" is a perfectly good answer at the early stage. What matters is knowing which ones they are.</p>
+</div>
+
+<div class="lab" id="vb-lab">
+  <div class="lab-head"><h3>The venture-backable scorecard</h3><span class="tag">Rate each one</span></div>
+  <div id="crits"></div>
+
+  <div class="result" aria-live="polite">
+    <div class="ring">
+      <svg width="180" height="180" viewBox="0 0 180 180" aria-hidden="true"><circle cx="90" cy="90" r="78" fill="none" stroke="#2a4245" stroke-width="12"/><circle id="arc" cx="90" cy="90" r="78" fill="none" stroke="#83C5BE" stroke-width="12" stroke-linecap="round" stroke-dasharray="490" stroke-dashoffset="490" style="transition:stroke-dashoffset .4s"/></svg>
+      <div class="c"><b id="score">0</b><span>of 18</span></div>
+    </div>
+    <div><h4 id="v-head">Start rating above</h4><p id="v-body">Your result and biggest gaps will show up here.</p></div>
+  </div>
+  <div class="gaps" id="gaps"></div>
+  <div class="actions">
+    <button class="btn btn-primary" id="copy">Copy my results</button>
+    <button class="btn" id="reset">Reset</button>
+  </div>
+  <textarea id="copybox" readonly aria-label="Your results as text"></textarea>
+</div>
+
+<div class="prose">
+  <h2>If you scored low</h2>
+  <p>Good. Now you know. Many of the most durable hard-tech companies aren't built on venture money at all. They're built on grants, strategic partners, project finance, or customer revenue. Picking the wrong capital is one of the most expensive mistakes a technical founder can make, because it signs you up for a growth curve your technology may not support.</p>
+  <p><a href="05-capital-stack.html">Part 5</a> covers the alternatives. And if your gaps sit in market or customer pain, <a href="04-why-ladder.html">Part 4</a> is a tool for finding a bigger, more urgent problem your technology could solve.</p>
+
+  <div class="takeaways">
+    <div class="eyebrow">Takeaways</div>
+    <ul>
+      <li>Venture fit comes down to <b>scale, reality, and durability</b>.</li>
+      <li>At the early stage, "not yet" is fine, but <b>know your plan to get to yes</b>.</li>
+      <li>Not venture-backable ≠ not fundable. <b>Match the capital to the company.</b></li>
+    </ul>
+  </div>
+
+  <nav class="pager">
+    <a href="02-power-law.html"><span class="eyebrow">← Previous</span><h3>Seventeen out of twenty</h3></a>
+    <a class="next" href="04-why-ladder.html"><span class="eyebrow">Next →</span><h3>Why do people care?</h3></a>
+  </nav>
+
+  <div class="sources"><div class="eyebrow">Sources & further reading</div>
+    <ul><li>Brad Feld & Jason Mendelson, <em>Venture Deals</em></li><li>Ilya Strebulaev & Alex Dang, <em>The Venture Mindset</em></li><li>Dan Olsen, <em>The Lean Product Playbook</em></li></ul>
+  </div>
+</div>
+</article>
+
+<footer><div class="wrap"><span>© Libby Fidel</span><a href="../index.html">Lab to Term Sheet: the playbook</a></div></footer>
+
+<script src="../assets/site.js"></script>
+<script>
+(function(){
+  var C=[
+    {g:'Can it get big?',k:'market',t:'Massive market',q:'Is there a path to a $1B+ market, today or through expansion?',fix:'Size the market bottom-up, then map the adjacent markets you could expand into. If the market doesn\'t exist yet, tie it to a trend investors already believe in.'},
+    {g:'Can it get big?',k:'growth',t:'High-growth potential',q:'Could this plausibly become a $500M+ company within a fund\'s lifetime?',fix:'Lay out the milestones that change your valuation (pilots, first commercial unit, a scale-up) and how quickly you can hit each one.'},
+    {g:'Can it get big?',k:'fund',t:'Could return the fund',q:'If everything goes right, is your outcome big enough to pay back the whole fund?',fix:'Do the math for each investor: their ownership × your exit value ≥ their fund size. Pitch funds whose size matches your realistic upside.'},
+    {g:'Is it real?',k:'pain',t:'Severe customer problem',q:'Are customers already spending time or money trying to solve this?',fix:'Run discovery interviews and ask about their priorities before you mention yours. If your problem never comes up unprompted, it may not be urgent.'},
+    {g:'Is it real?',k:'diff',t:'10x better product',q:'Is it dramatically better than the alternatives, not just incrementally?',fix:'Build a scorecard against incumbents, emerging technologies, and "do nothing." Find the one dimension where you are 10x better and lead with it.'},
+    {g:'Is it real?',k:'team',t:'The right people',q:'Does the team combine technical depth with commercial and industry insight?',fix:'Name the missing role honestly (often commercial or manufacturing) and show how you\'ll fill it: a co-founder, an advisor, or your first hire.'},
+    {g:'Can it last?',k:'moat',t:'Defensibility',q:'What stops a well-funded competitor from copying you?',fix:'Look beyond patents: process know-how, data, supply relationships, regulatory approvals, and switching costs all count.'},
+    {g:'Can it last?',k:'scale',t:'Scalable, repeatable revenue',q:'Can revenue grow faster than headcount and capital costs?',fix:'Find the parts of the model that are services or custom work, and plan how they become product, licensing, or recurring revenue.'},
+    {g:'Can it last?',k:'exit',t:'Clear path to exit',q:'Who would buy this company, or could it go public?',fix:'List 5–10 likely acquirers and the recent deals in your space. Strategic investors today are often the acquirers of tomorrow.'}
+  ];
+  var vals={}, wrap=document.getElementById('crits'), lastG='';
+  C.forEach(function(c,i){
+    if(c.g!==lastG){var gl=document.createElement('div');gl.className='group-label';gl.textContent=c.g;wrap.appendChild(gl);lastG=c.g}
+    var row=document.createElement('div');row.className='crit';
+    row.innerHTML='<div class="n">0'+(i+1)+'</div><div><h4>'+c.t+'</h4><p>'+c.q+'</p></div>'+
+      '<div class="seg" role="group" aria-label="'+c.t+'"><button data-v="0" aria-pressed="false">No</button><button data-v="1" aria-pressed="false">Not yet</button><button data-v="2" aria-pressed="false">Yes</button></div>';
+    row.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){
+      vals[c.k]=+b.dataset.v;row.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});update();
+    })});
+    wrap.appendChild(row);
+  });
+  function update(){
+    var n=Object.keys(vals).length, s=0; for(var k in vals) s+=vals[k];
+    document.getElementById('score').textContent=s;
+    document.getElementById('arc').style.strokeDashoffset=490-490*(s/18);
+    var h,b;
+    if(n<9){h='Keep going: '+(9-n)+' left';b='Rate all nine to see your result.'}
+    else if(s>=15){h='Looks <em>venture-shaped</em>';b='You have a credible story on nearly every dimension. Pressure-test the weakest ones before an investor does.'}
+    else if(s>=10){h='Venture-backable, <em>with work</em>';b='The foundations are there. Close the gaps below before you raise, or raise only from investors who specialize in this stage.'}
+    else if(s>=6){h='Not yet. <em>Maybe later.</em>';b='Non-dilutive money and customer validation will probably get you further right now than a VC pitch.'}
+    else {h='Probably a <em>different capital path</em>';b='That isn\'t a verdict on the business. Grants, strategic partners, or revenue may suit it better than venture.'}
+    document.getElementById('v-head').innerHTML=h;document.getElementById('v-body').textContent=b;
+    var g=document.getElementById('gaps');g.innerHTML='';
+    var low=C.filter(function(c){return vals[c.k]!==undefined&&vals[c.k]<2}).sort(function(a,b){return vals[a.k]-vals[b.k]}).slice(0,3);
+    if(low.length){var t=document.createElement('div');t.className='eyebrow';t.style.margin='4px 0 10px';t.textContent='Your top gaps';g.appendChild(t)}
+    low.forEach(function(c){var d=document.createElement('div');d.className='gap';d.innerHTML='<b>'+c.t+'.</b> '+c.fix;g.appendChild(d)});
+  }
+  function asText(){
+    var lab=['No','Not yet','Yes'],s=0,lines=C.map(function(c){var v=vals[c.k];if(v!==undefined)s+=v;return '- '+c.t+': '+(v===undefined?'(unrated)':lab[v])});
+    return 'Venture-backable scorecard: '+s+'/18\n'+lines.join('\n')+'\n\nlibbyfidel.com · Lab to Term Sheet';
+  }
+  document.getElementById('copy').addEventListener('click',function(){
+    var t=asText(),box=document.getElementById('copybox');box.value=t;box.style.display='block';window.copyText(t,this);
+  });
+  document.getElementById('reset').addEventListener('click',function(){
+    vals={};document.querySelectorAll('.crit button').forEach(function(b){b.setAttribute('aria-pressed','false')});
+    document.getElementById('copybox').style.display='none';update();
+    document.getElementById('v-head').textContent='Start rating above';document.getElementById('v-body').textContent='Your result and biggest gaps will show up here.';
+  });
+})();
+</script>
+</body>
+</html>

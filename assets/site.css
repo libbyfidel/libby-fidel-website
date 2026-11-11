@@ -3,18 +3,10 @@
 *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:var(--teal)}img{max-width:100%;display:block}
 .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
-/* Teal band with squiggle */
-.band{position:relative;background:var(--teal);color:var(--cream);overflow:hidden}
-.band::before{content:"";position:absolute;inset:0;background:url(/assets/squiggle.svg) 0 0/330px repeat}
-.band>*{position:relative}
-.sh{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;flex-wrap:wrap}
 .logo{display:flex;align-items:center;gap:12px;color:var(--cream);text-decoration:none;font:500 21px var(--serif)}.logo img{width:36px;height:36px}
-.nav{display:flex;gap:6px;flex-wrap:wrap}.nav a{color:#E2F0EE;text-decoration:none;font-size:15px;padding:8px 14px;border-radius:99px}.nav a:hover,.nav a.on{background:rgba(251,247,240,.14);color:#fff}
 .eyebrow{font:500 12px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--sea)}
-.hero{padding:64px 0 96px}.hero h1{font:400 clamp(44px,7vw,84px)/1 var(--serif);letter-spacing:-.025em;margin:18px 0 0;max-width:12ch}.hero h1 em{font-style:normal;color:var(--butter)}.hero h1 .dot{color:var(--blaze)}
-.hero p.lede{font:400 clamp(19px,2.2vw,23px)/1.45 var(--serif);max-width:34ch;margin:22px 0 0;color:#EAF4F2}
 .page-hero{padding:40px 0 72px}.page-hero h1{font:400 clamp(40px,6vw,64px)/1.05 var(--serif);letter-spacing:-.02em;margin:14px 0 0;max-width:20ch}.page-hero p{max-width:56ch;color:#DDEEEB;font-size:18px;margin:16px 0 0}
-.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+
 .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:99px;font-weight:500;text-decoration:none;font-size:15px;transition:.15s}
 .btn.primary{background:var(--blaze);color:var(--ink)}.btn.primary:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(255,91,20,.35)}
 .btn.ghost{border:1px solid rgba(131,197,190,.7);color:var(--cream)}.btn.ghost:hover{background:rgba(131,197,190,.15)}
@@ -60,3 +52,4 @@ a{color:var(--teal)}img{max-width:100%;display:block}
 .slide img{border-radius:8px}.slide figcaption{left:0;right:0;bottom:0;border-radius:0 0 8px 8px}
 .slide{border:6px solid var(--teal);outline:none;border-radius:18px;box-shadow:0 0 0 1px var(--teal),0 16px 30px -18px rgba(0,109,119,.55);background:var(--teal)}
 .slide img{border-radius:12px}
+.connect{position:relative;background:var(--teal);color:var(--cream);overflow:hidden}.connect::before{content:"";position:absolute;inset:0;background:url(/assets/squiggle.svg) 0 0/330px repeat}.connect>*{position:relative}

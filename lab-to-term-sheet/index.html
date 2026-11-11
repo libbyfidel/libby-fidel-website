@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab to Term Sheet — Libby Fidel</title>
+<meta name="description" content="An interactive five-part playbook for deep-tech founders on how venture capital really works, and whether it's right for you.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.hero{padding:104px 0 88px}
+.hero h1{font-size:72px;line-height:1}
+.hero .cta{margin-top:36px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.hero .cta a.btn{text-decoration:none;display:inline-block}
+.hero .cta .ghost{color:var(--cream);font-size:15px}
+.intro{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;padding:72px 0 24px;align-items:start}
+.intro p{margin:0 0 18px}
+.intro .big{font:400 30px/1.3 var(--serif)}
+.intro .big em{color:var(--teal)}
+.chapters{display:grid;gap:14px;padding:24px 0 16px}
+.ch{display:grid;grid-template-columns:90px 1fr 260px 40px;gap:24px;align-items:center;background:var(--linen);border:1px solid var(--stone);border-radius:var(--radius);padding:26px 28px;text-decoration:none;color:var(--ink);transition:border-color .15s,transform .15s}
+.ch:hover{border-color:var(--teal);transform:translateY(-2px)}
+.ch .no{font:400 56px/1 var(--serif);color:var(--teal)}
+.ch h2{font-size:28px;margin:6px 0 6px}
+.ch p{margin:0;font-size:16px;color:var(--slate)}
+.ch .tool{font-size:14px;border-left:1px solid var(--stone);padding-left:20px}
+.ch .tool b{display:block;font-weight:500;color:var(--ink);margin-top:4px}
+.ch .arrow{font:400 24px/1 var(--serif);color:var(--teal);text-align:right}
+.section-head{display:flex;justify-content:space-between;align-items:baseline;padding-top:40px}
+.section-head h2{margin:0}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 0}
+.path{background:var(--cream);border:1px solid var(--stone);border-radius:var(--radius);padding:22px}
+.path h3{margin-bottom:6px}
+.path p{margin:0 0 12px;font-size:15px;color:var(--slate)}
+.path .seq{font:400 12px/1 var(--mono);color:var(--teal)}
+.about{background:var(--ink);color:var(--cream);border-radius:var(--radius);padding:44px;margin-top:56px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.about h2{margin:0 0 12px;color:var(--cream)}
+.about h2 em{color:var(--butter)}
+.about p{margin:0;color:var(--stone)}
+.about a{color:var(--seafoam)}
+@media(max-width:860px){
+  .hero h1{font-size:46px}
+  .intro{grid-template-columns:1fr;gap:12px;padding-top:48px}
+  .ch{grid-template-columns:56px 1fr;gap:14px;padding:22px}
+  .ch .no{font-size:40px}
+  .ch .tool{grid-column:1/-1;border-left:0;padding-left:0;border-top:1px solid var(--stone);padding-top:12px}
+  .ch .arrow{display:none}
+  .paths{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr;padding:28px}
+}
+</style>
+<link rel="stylesheet" href="/assets/header.css">
+</head>
+<body>
+<div class="band hdr"><div class="hdr-top"><a class="hdr-logo" href="/"><img src="/brand/libby-mark-teal.svg" alt="Libby Fidel home"></a></div><nav class="hdr-nav" aria-label="Main"><span class="ristra" style="--img:url(/assets/chiles/ristra-05.webp);--rh:440px;--tw:36px;--rot:-1.6deg;--dur:3.20s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async" fetchpriority=high></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-03.webp);--rh:400px;--tw:64px;--rot:1.2deg;--dur:3.57s;--delay:-0.9s" aria-hidden="true"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async" fetchpriority=high></span><span class="ristra" style="--img:url(/assets/chiles/ristra-06.webp);--rh:430px;--tw:48px;--rot:-0.7deg;--dur:3.94s;--delay:-1.8s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async" fetchpriority=high></span><a class="ristra nav-item" href="/writing/" style="--img:url(/assets/chiles/ristra-02.webp);--rh:400px;--tw:48px;--rot:-0.8deg;--dur:4.31s;--delay:-2.7s"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:-2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp1" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp1" startOffset="50%">Writing</textPath></text></svg><span class="lbl">Writing</span></a><a class="ristra nav-item flip" href="/sf/" style="--img:url(/assets/chiles/ristra-04.webp);--rh:440px;--tw:58px;--rot:1.5deg;--dur:3.28s;--delay:-0.6s"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:1.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp2" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp2" startOffset="50%">Life in SF</textPath></text></svg><span class="lbl">Life in SF</span></a><a class="ristra nav-item flip" href="/games/" style="--img:url(/assets/chiles/ristra-01.webp);--rh:380px;--tw:44px;--rot:-1.9deg;--dur:3.65s;--delay:-1.5s"><img src="/assets/chiles/ristra-01.webp" alt="" width="367" height="1000" decoding="async"><svg class="bow" style="--brot:-1deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp3" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp3" startOffset="50%">Games</textPath></text></svg><span class="lbl">Games</span></a><a class="ristra nav-item flip" href="/#about" style="--img:url(/assets/chiles/ristra-05.webp);--rh:420px;--tw:56px;--rot:0.6deg;--dur:4.02s;--delay:-2.4s"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async"><svg class="bow" style="--brot:2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp4" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp4" startOffset="50%">About</textPath></text></svg><span class="lbl">About</span></a><a class="ristra nav-item" href="/#contact" style="--img:url(/assets/chiles/ristra-03.webp);--rh:390px;--tw:46px;--rot:1.1deg;--dur:4.39s;--delay:-0.3s"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async"><svg class="bow" style="--brot:-2deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp5" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp5" startOffset="50%">Contact</textPath></text></svg><span class="lbl">Contact</span></a><span class="ristra flip" style="--img:url(/assets/chiles/ristra-06.webp);--rh:420px;--tw:68px;--rot:-1.3deg;--dur:3.36s;--delay:-1.2s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async"></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-02.webp);--rh:380px;--tw:40px;--rot:1.7deg;--dur:3.73s;--delay:-2.1s" aria-hidden="true"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async"></span><span class="ristra" style="--img:url(/assets/chiles/ristra-04.webp);--rh:460px;--tw:52px;--rot:-1.1deg;--dur:4.10s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async"></span></nav></div>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">A playbook for deep-tech founders · 5 parts · Interactive</div>
+  <h1>Lab to <span class="hl">Term Sheet</span></h1>
+  <p class="dek">How venture capital actually works, what it needs from you, and how to tell whether it's the right money for what you're building.</p>
+  <div class="cta"><a class="btn btn-primary" href="posts/01-fund-clock.html">Start with Part 1</a><a class="ghost" href="posts/03-venture-backable.html">Or take the 3-minute scorecard →</a></div>
+</div></section>
+
+<main class="wrap">
+  <section class="intro">
+    <p class="big">Great technology isn't enough. <em>You also need the right capital, raised at the right time, from people whose math fits yours.</em></p>
+    <div>
+      <p>I wrote this for researchers, engineers, and scientists turning hard technology into companies: chips, materials, energy, the physical stuff. Most fundraising advice is written for software. Deep tech runs on longer timelines and has different risks.</p>
+      <p>Each part has a tool in it. Drag, click, score yourself. Spend twenty minutes here and you'll walk into an investor meeting knowing what they're solving for.</p>
+    </div>
+  </section>
+
+  <section id="parts" class="chapters" aria-label="Playbook parts">
+    <a class="ch" href="posts/01-fund-clock.html">
+      <div class="no">01</div>
+      <div><span class="eyebrow">The basics · 6 min</span><h2>Your raise runs on the fund's clock</h2><p>How a venture fund is built, and why the year you pitch changes the answer.</p></div>
+      <div class="tool"><span class="eyebrow">Tool</span><b>Fund lifecycle scrubber</b></div>
+      <div class="arrow">→</div>
+    </a>
+    <a class="ch" href="posts/02-power-law.html">
+      <div class="no">02</div>
+      <div><span class="eyebrow">The mindset · 5 min</span><h2>Seventeen out of twenty will fail</h2><p>The power law, and why every VC question is really about your upside.</p></div>
+      <div class="tool"><span class="eyebrow">Tool</span><b>Portfolio builder + 1,000-fund simulator</b></div>
+      <div class="arrow">→</div>
+    </a>
+    <a class="ch" href="posts/03-venture-backable.html">
+      <div class="no">03</div>
+      <div><span class="eyebrow">The test · 4 min + quiz</span><h2>Is it venture-backable?</h2><p>Nine criteria investors use. Score yourself honestly and see your gaps.</p></div>
+      <div class="tool"><span class="eyebrow">Tool</span><b>Venture-backable scorecard</b></div>
+      <div class="arrow">→</div>
+    </a>
+    <a class="ch" href="posts/04-why-ladder.html">
+      <div class="no">04</div>
+      <div><span class="eyebrow">The product · 7 min</span><h2>You have an invention. Why do people care?</h2><p>A technology-first route to product-market fit, plus how to check that the pain is real.</p></div>
+      <div class="tool"><span class="eyebrow">Tool</span><b>Why-ladder builder + urgency map</b></div>
+      <div class="arrow">→</div>
+    </a>
+    <a class="ch" href="posts/05-capital-stack.html">
+      <div class="no">05</div>
+      <div><span class="eyebrow">The money · 6 min</span><h2>Before you raise, build a capital stack</h2><p>Non-dilutive vs. equity, what dilution really costs, and how to size a market that doesn't exist yet.</p></div>
+      <div class="tool"><span class="eyebrow">Tool</span><b>Funding explorer + dilution calculator</b></div>
+      <div class="arrow">→</div>
+    </a>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Where to start</h2><span class="eyebrow">Pick your path</span></div>
+    <div class="paths">
+      <div class="path"><h3>"I'm still in the lab"</h3><p>You have a promising result and no company yet.</p><div class="seq">04 → 05 → 03</div></div>
+      <div class="path"><h3>"I'm about to raise"</h3><p>You have a company and investor meetings coming up.</p><div class="seq">03 → 01 → 02</div></div>
+      <div class="path"><h3>"I'm new to venture"</h3><p>You want the whole picture, in order.</p><div class="seq">01 → 02 → 03 → 04 → 05</div></div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div><h2>Questions, or a company <em>in the making?</em></h2><p>I write about venture, deep tech, and infrastructure. If you're turning research into a company and want a sounding board, get in touch.</p></div>
+    <div><p><a href="https://libbyfidel.com/#contact">Get in touch →</a><br><a href="https://libbyfidel.com/#writing">Read more essays →</a></p></div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>© Libby Fidel · Lab to Term Sheet</span><a href="https://libbyfidel.com">libbyfidel.com</a></div></footer>
+</body>
+</html>

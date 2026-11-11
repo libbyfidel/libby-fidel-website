@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why do people care? — Libby Fidel</title>
+<meta name="description" content="Most product-market-fit advice assumes you start with a customer. Deep-tech founders start with an invention. Here's a tool for climbing from the lab to the market.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.ladder{display:flex;flex-direction:column-reverse;gap:0;margin:8px 0 16px}
+.rung{display:grid;grid-template-columns:1fr 220px 34px;gap:12px;align-items:stretch;position:relative}
+.rung .box{background:var(--cream);border:1px solid var(--stone);border-radius:10px;padding:12px 14px}
+.rung .lvl{font:400 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--slate);margin-bottom:6px}
+.rung.base .box{background:var(--teal);color:var(--cream);border-color:var(--teal)}
+.rung.base .lvl{color:var(--seafoam)}
+.rung textarea{border:0;background:transparent;padding:0;font:400 16px/1.4 var(--sans);color:inherit;resize:none;overflow:hidden;min-height:22px;width:100%;display:block}
+.rung textarea::placeholder{color:var(--pebble)}
+.rung.base textarea::placeholder{color:var(--seafoam)}
+.rung .prod{background:var(--linen);border:1px dashed var(--pebble)}
+
+.rung .x{all:unset;cursor:pointer;color:var(--slate);text-align:center;font-size:20px;align-self:center}
+.rung .x:focus-visible{outline:2px solid var(--teal)}
+.why{font:italic 400 15px/1 var(--serif);color:var(--teal);padding:10px 0 10px 16px;display:flex;align-items:center;gap:8px}
+.why::before{content:"↑";font-style:normal;font-family:var(--mono)}
+.ladder-actions{display:flex;gap:10px;flex-wrap:wrap}
+.quad{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;aspect-ratio:1.6;background:var(--cream);border:1px solid var(--stone);border-radius:10px;overflow:hidden;margin:6px 0 12px}
+.quad div{padding:12px;font:400 12px/1.3 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--slate)}
+.quad .hot{background:rgba(0,109,119,.12);color:var(--teal)}
+.dot{position:absolute;width:20px;height:20px;border-radius:50%;background:var(--blaze);border:3px solid var(--ink);transform:translate(-50%,50%);transition:left .15s,bottom .15s}
+.qaxis{display:flex;justify-content:space-between;font-size:13px;color:var(--slate)}
+.q-out{font:400 20px/1.35 var(--serif);margin-top:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:720px){.rung{grid-template-columns:1fr 30px}.rung .prod{grid-column:1}.rung .x{grid-row:1;grid-column:2}.two{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/header.css">
+</head>
+<body>
+<header class="topbar progress-holder" style="height:0;border:0"><div class="progress"></div></header><div class="band hdr"><div class="hdr-top"><a class="hdr-logo" href="/"><img src="/brand/libby-mark-teal.svg" alt="Libby Fidel home"></a></div><nav class="hdr-nav" aria-label="Main"><span class="ristra" style="--img:url(/assets/chiles/ristra-05.webp);--rh:440px;--tw:36px;--rot:-1.6deg;--dur:3.20s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async" fetchpriority=high></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-03.webp);--rh:400px;--tw:64px;--rot:1.2deg;--dur:3.57s;--delay:-0.9s" aria-hidden="true"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async" fetchpriority=high></span><span class="ristra" style="--img:url(/assets/chiles/ristra-06.webp);--rh:430px;--tw:48px;--rot:-0.7deg;--dur:3.94s;--delay:-1.8s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async" fetchpriority=high></span><a class="ristra nav-item" href="/writing/" style="--img:url(/assets/chiles/ristra-02.webp);--rh:400px;--tw:48px;--rot:-0.8deg;--dur:4.31s;--delay:-2.7s"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:-2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp1" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp1" startOffset="50%">Writing</textPath></text></svg><span class="lbl">Writing</span></a><a class="ristra nav-item flip" href="/sf/" style="--img:url(/assets/chiles/ristra-04.webp);--rh:440px;--tw:58px;--rot:1.5deg;--dur:3.28s;--delay:-0.6s"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:1.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp2" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp2" startOffset="50%">Life in SF</textPath></text></svg><span class="lbl">Life in SF</span></a><a class="ristra nav-item flip" href="/games/" style="--img:url(/assets/chiles/ristra-01.webp);--rh:380px;--tw:44px;--rot:-1.9deg;--dur:3.65s;--delay:-1.5s"><img src="/assets/chiles/ristra-01.webp" alt="" width="367" height="1000" decoding="async"><svg class="bow" style="--brot:-1deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp3" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp3" startOffset="50%">Games</textPath></text></svg><span class="lbl">Games</span></a><a class="ristra nav-item flip" href="/#about" style="--img:url(/assets/chiles/ristra-05.webp);--rh:420px;--tw:56px;--rot:0.6deg;--dur:4.02s;--delay:-2.4s"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async"><svg class="bow" style="--brot:2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp4" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp4" startOffset="50%">About</textPath></text></svg><span class="lbl">About</span></a><a class="ristra nav-item" href="/#contact" style="--img:url(/assets/chiles/ristra-03.webp);--rh:390px;--tw:46px;--rot:1.1deg;--dur:4.39s;--delay:-0.3s"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async"><svg class="bow" style="--brot:-2deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp5" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp5" startOffset="50%">Contact</textPath></text></svg><span class="lbl">Contact</span></a><span class="ristra flip" style="--img:url(/assets/chiles/ristra-06.webp);--rh:420px;--tw:68px;--rot:-1.3deg;--dur:3.36s;--delay:-1.2s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async"></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-02.webp);--rh:380px;--tw:40px;--rot:1.7deg;--dur:3.73s;--delay:-2.1s" aria-hidden="true"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async"></span><span class="ristra" style="--img:url(/assets/chiles/ristra-04.webp);--rh:460px;--tw:52px;--rot:-1.1deg;--dur:4.10s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async"></span></nav></div>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Lab to Term Sheet · Part 4 of 5</div>
+  <h1>You have an invention. <span class="hl">Why do people care?</span></h1>
+  <p class="dek">Most product-market-fit playbooks start with a customer. Deep-tech founders start with a breakthrough. Here's how to climb from one to the other.</p>
+  <div class="meta"><span class="eyebrow">7 min read</span><span class="eyebrow">Interactive</span><span class="eyebrow">Deep tech · Product-market fit</span></div>
+</div></section>
+
+<article>
+<div class="prose">
+  <p class="lede">The standard startup advice is to find a painful problem and then build the solution. That works well for software, which can be shaped into almost anything. It works less well when what you have is a new electrode chemistry, a sensor, or a better way to grow a crystal.</p>
+  <p>That doesn't mean technology-first is the wrong approach. One study of 137 US unicorns found that market-first, technology-first, and balanced strategies can all reach billion-dollar valuations. Market-first was the most common route. Technology-first was linked to the <em>fastest growth</em>.</p>
+  <p>The trick is to be disciplined about how you go from invention to market.</p>
+
+  <h2>The ladder</h2>
+  <p>Start with your research question at the bottom. Then keep asking one question: <em>why do people care?</em> Each answer is a rung, and each rung is a possible product with a different customer, scope, and market size. Climbing too high makes you a fuel company. Stopping too low may leave you selling a component nobody budgets for.</p>
+</div>
+
+<div class="lab" id="ladder-lab">
+  <div class="lab-head"><h3>Build your why-ladder</h3><div class="seg" role="group" aria-label="Mode"><button id="m-ex" aria-pressed="true">Example</button><button id="m-mine" aria-pressed="false">My technology</button></div></div>
+  <div class="ladder" id="ladder"></div>
+  <div class="ladder-actions">
+    <button class="btn" id="add">+ Ask "why do people care?"</button>
+    <button class="btn btn-primary" id="copy">Copy my ladder</button>
+  </div>
+  <textarea id="copybox" readonly style="display:none;margin-top:10px;font:400 13px/1.5 var(--mono);height:140px" aria-label="Your ladder as text"></textarea>
+  <p class="small" style="margin-top:14px">Fill in the dashed box on each rung: what product would you build if you stopped there?</p>
+</div>
+
+<div class="prose">
+  <p>In the example, one research finding opens up three very different companies: an electrode supplier, an electrolyzer maker, or a green fuel producer. Each one has its own customers, capital needs, and competitors, and you can test product-market fit for each before you commit.</p>
+
+  <h2>Is the problem actually urgent?</h2>
+  <p>A rung is only worth building on if the people there feel the pain. A handy way to check: how <em>important</em> is the need, and how <em>satisfied</em> are people with what they use today? The opportunity is where the need is important and current options fall short.</p>
+</div>
+
+<div class="lab" id="quad-lab">
+  <div class="lab-head"><h3>Place your problem</h3><span class="tag">Use the sliders</span></div>
+  <div class="two">
+    <div>
+      <div class="quad" id="quad" aria-hidden="true">
+        <div class="hot">Opportunity</div><div>Competitive</div>
+        <div>Very limited</div><div>Very limited</div>
+        <span class="dot" id="dot"></span>
+      </div>
+      <div class="qaxis"><span>← Unhappy with today's options</span><span>Happy →</span></div>
+    </div>
+    <div>
+      <label class="ctl"><span class="ctl-row"><span>How urgent is the need?</span><b id="u-out">7/10</b></span><input type="range" id="urg" min="1" max="10" value="7"></label>
+      <label class="ctl"><span class="ctl-row"><span>How satisfied are customers with existing solutions?</span><b id="s-out">3/10</b></span><input type="range" id="sat" min="1" max="10" value="3"></label>
+      <p class="q-out" id="q-out" aria-live="polite"></p>
+    </div>
+  </div>
+</div>
+
+<div class="prose">
+  <h2>Don't guess. Go ask.</h2>
+  <p>Those two sliders should come from conversations, not from your own intuition. A few rules for customer discovery interviews:</p>
+  <ol>
+    <li><b>Ask about their priorities before you show them yours.</b> Get them to list their top five to ten problems. If yours doesn't come up, it may not matter, however enthusiastic they are once they see your demo.</li>
+    <li><b>Ask about behavior, not opinions.</b> Are they spending money or headcount on this today, or just complaining about it?</li>
+    <li><b>Map what they use now.</b> How do they solve it today, and what do they love and hate about that?</li>
+    <li><b>Look for patterns across interviews.</b> One excited customer is an anecdote. Eight with the same workaround is a market.</li>
+  </ol>
+  <p class="pull">If you have to ask whether you have product-market fit, you probably don't. When you do, customers pull the product out of your hands.</p>
+
+  <div class="takeaways">
+    <div class="eyebrow">Takeaways</div>
+    <ul>
+      <li>Technology-first is a <b>valid path</b>; just climb the ladder deliberately.</li>
+      <li>Every rung is a <b>different company</b>. Pick your scope on purpose.</li>
+      <li>Validate urgency through <b>behavior in interviews</b>, not compliments.</li>
+    </ul>
+  </div>
+
+  <nav class="pager">
+    <a href="03-venture-backable.html"><span class="eyebrow">← Previous</span><h3>Is it venture-backable?</h3></a>
+    <a class="next" href="05-capital-stack.html"><span class="eyebrow">Next →</span><h3>Before you raise</h3></a>
+  </nav>
+
+  <div class="sources"><div class="eyebrow">Sources & further reading</div>
+    <ul><li>Dan Olsen, <em>The Lean Product Playbook</em></li><li>Steve Blank, the Customer Development Model</li><li>Eric Ries, <em>The Lean Startup</em></li><li>Research on market-first vs. technology-first paths among US unicorns</li></ul>
+  </div>
+</div>
+</article>
+
+<footer><div class="wrap"><span>© Libby Fidel</span><a href="../index.html">Lab to Term Sheet: the playbook</a></div></footer>
+
+<script src="../assets/site.js"></script>
+<script>
+(function(){
+  var example=[
+    {t:'Can acoustics be used to control electrode chemistry in hydrogen electrolysis?',p:''},
+    {t:'Electrode surface area degrades over time, lowering electrolysis efficiency',p:'Longer-lasting electrode'},
+    {t:'Lower efficiency drives up the cost of green hydrogen',p:'Higher-efficiency electrolyzer'},
+    {t:'High costs hold back green hydrogen adoption',p:'Low-cost green hydrogen'},
+    {t:'Existing fuels are carbon-intensive and cause climate damage',p:'Green fuel producer'}
+  ];
+  var mine=[{t:'',p:''}], mode='ex', L=document.getElementById('ladder');
+  function data(){return mode==='ex'?example:mine}
+  function render(){
+    L.innerHTML='';var d=data();
+    d.forEach(function(r,i){
+      if(i>0){var w=document.createElement('div');w.className='why';w.textContent='Why do people care?';L.appendChild(w)}
+      var el=document.createElement('div');el.className='rung'+(i===0?' base':'');
+      el.innerHTML='<div class="box"><div class="lvl">'+(i===0?'Research question':'Rung '+i)+'</div><textarea rows="1" aria-label="'+(i===0?'Research question':'Rung '+i)+'" placeholder="'+(i===0?'What does your research make possible?':'Because…')+'"></textarea></div>'+
+        (i===0?'<div></div><div></div>':'<div class="box prod"><div class="lvl">Product at this level</div><textarea rows="1" placeholder="e.g. a component, a system…" aria-label="Product at rung '+i+'"></textarea></div><button class="x" aria-label="Remove rung '+i+'">×</button>');
+      var ins=el.querySelectorAll('textarea');function fit(t){t.style.height='auto';t.style.height=t.scrollHeight+'px'}
+      ins[0].value=r.t;ins[0].addEventListener('input',function(){r.t=this.value;fit(this)});
+      if(ins[1]){ins[1].value=r.p;ins[1].addEventListener('input',function(){r.p=this.value;fit(this)})}
+      setTimeout(function(){ins.forEach(fit)},0);
+      var x=el.querySelector('.x');if(x)x.addEventListener('click',function(){d.splice(i,1);render()});
+      L.appendChild(el);
+    });
+  }
+  function setMode(m){mode=m;document.getElementById('m-ex').setAttribute('aria-pressed',m==='ex');document.getElementById('m-mine').setAttribute('aria-pressed',m==='mine');render()}
+  document.getElementById('m-ex').onclick=function(){setMode('ex')};
+  document.getElementById('m-mine').onclick=function(){setMode('mine')};
+  document.getElementById('add').onclick=function(){var d=data();if(d.length>=7)return;d.push({t:'',p:''});render();var ins=L.querySelectorAll('.rung');ins[ins.length-1].querySelector('textarea').focus()};
+  document.getElementById('copy').onclick=function(){
+    var d=data(),t='My why-ladder\n'+d.map(function(r,i){return (i===0?'Research: ':'Why care #'+i+': ')+(r.t||'—')+(r.p?'  → product: '+r.p:'')}).join('\n');
+    var b=document.getElementById('copybox');b.value=t;b.style.display='block';window.copyText(t,this);
+  };
+  render();
+
+  var u=document.getElementById('urg'),s=document.getElementById('sat'),dot=document.getElementById('dot');
+  function q(){
+    var uv=+u.value,sv=+s.value;
+    document.getElementById('u-out').textContent=uv+'/10';document.getElementById('s-out').textContent=sv+'/10';
+    dot.style.left=((sv-1)/9*90+5)+'%';dot.style.bottom=((uv-1)/9*90+5)+'%';
+    var t;
+    if(uv>=6&&sv<=5)t='Opportunity. The need is urgent and current options fall short. This is a rung worth building on.';
+    else if(uv>=6)t='Competitive. People care, but they\'re reasonably happy today. You\'ll need to be dramatically better.';
+    else if(sv<=5)t='A "nice to have." Customers are unhappy but not motivated to switch. Expect slow sales.';
+    else t='Very limited. Low urgency and decent alternatives. Try climbing another rung.';
+    document.getElementById('q-out').textContent=t;
+  }
+  u.oninput=q;s.oninput=q;q();
+})();
+</script>
+</body>
+</html>

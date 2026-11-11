@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seventeen out of twenty — Libby Fidel</title>
+<meta name="description" content="Venture runs on the power law. Build a 20-company portfolio and see why one outlier matters more than everything else combined.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.grid20{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;margin:6px 0 18px}
+.co{all:unset;cursor:pointer;aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font:400 13px/1 var(--mono);border:1px solid var(--stone);background:var(--cream);color:var(--pebble);transition:transform .12s}
+.co:hover{transform:translateY(-2px)}
+.co:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.co[data-x="1"]{background:var(--stone);color:var(--ink)}
+.co[data-x="5"]{background:var(--seafoam);color:var(--ink);border-color:var(--seafoam)}
+.co[data-x="20"]{background:var(--teal);color:var(--cream);border-color:var(--teal)}
+.co[data-x="100"]{background:var(--ink);color:var(--butter);border-color:var(--ink);font-weight:700}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--slate);margin-bottom:16px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;border:1px solid var(--stone)}
+.presets{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.contrib{height:28px;display:flex;border-radius:6px;overflow:hidden;background:var(--stone);margin:14px 0 6px}
+.contrib span{height:100%;transition:width .25s}
+.verdict{font:400 22px/1.35 var(--serif);margin:18px 0 0}
+.hist{display:flex;align-items:flex-end;gap:3px;height:140px;margin:14px 0 6px;border-bottom:1px solid var(--stone)}
+.hist div{flex:1;background:var(--seafoam);border-radius:3px 3px 0 0;position:relative}
+.hist div.hi{background:var(--teal)}
+.hist-axis{display:flex;justify-content:space-between;font:400 11px/1 var(--mono);color:var(--slate)}
+.funnel{display:flex;flex-direction:column;gap:6px;margin:6px 0}
+.funnel div{background:var(--teal);color:var(--cream);border-radius:6px;padding:10px 14px;font-size:15px;display:flex;justify-content:space-between;margin:0 auto}
+.funnel b{font:400 12px/1.6 var(--mono);color:var(--butter)}
+@media(max-width:720px){.grid20{grid-template-columns:repeat(5,1fr)}}
+</style>
+<link rel="stylesheet" href="/assets/header.css">
+</head>
+<body>
+<header class="topbar progress-holder" style="height:0;border:0"><div class="progress"></div></header><div class="band hdr"><div class="hdr-top"><a class="hdr-logo" href="/"><img src="/brand/libby-mark-teal.svg" alt="Libby Fidel home"></a></div><nav class="hdr-nav" aria-label="Main"><span class="ristra" style="--img:url(/assets/chiles/ristra-05.webp);--rh:440px;--tw:36px;--rot:-1.6deg;--dur:3.20s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async" fetchpriority=high></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-03.webp);--rh:400px;--tw:64px;--rot:1.2deg;--dur:3.57s;--delay:-0.9s" aria-hidden="true"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async" fetchpriority=high></span><span class="ristra" style="--img:url(/assets/chiles/ristra-06.webp);--rh:430px;--tw:48px;--rot:-0.7deg;--dur:3.94s;--delay:-1.8s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async" fetchpriority=high></span><a class="ristra nav-item" href="/writing/" style="--img:url(/assets/chiles/ristra-02.webp);--rh:400px;--tw:48px;--rot:-0.8deg;--dur:4.31s;--delay:-2.7s"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:-2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp1" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp1" startOffset="50%">Writing</textPath></text></svg><span class="lbl">Writing</span></a><a class="ristra nav-item flip" href="/sf/" style="--img:url(/assets/chiles/ristra-04.webp);--rh:440px;--tw:58px;--rot:1.5deg;--dur:3.28s;--delay:-0.6s"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async" fetchpriority=high><svg class="bow" style="--brot:1.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp2" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp2" startOffset="50%">Life in SF</textPath></text></svg><span class="lbl">Life in SF</span></a><a class="ristra nav-item flip" href="/games/" style="--img:url(/assets/chiles/ristra-01.webp);--rh:380px;--tw:44px;--rot:-1.9deg;--dur:3.65s;--delay:-1.5s"><img src="/assets/chiles/ristra-01.webp" alt="" width="367" height="1000" decoding="async"><svg class="bow" style="--brot:-1deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp3" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp3" startOffset="50%">Games</textPath></text></svg><span class="lbl">Games</span></a><a class="ristra nav-item flip" href="/#about" style="--img:url(/assets/chiles/ristra-05.webp);--rh:420px;--tw:56px;--rot:0.6deg;--dur:4.02s;--delay:-2.4s"><img src="/assets/chiles/ristra-05.webp" alt="" width="350" height="1000" decoding="async"><svg class="bow" style="--brot:2.5deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp4" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp4" startOffset="50%">About</textPath></text></svg><span class="lbl">About</span></a><a class="ristra nav-item" href="/#contact" style="--img:url(/assets/chiles/ristra-03.webp);--rh:390px;--tw:46px;--rot:1.1deg;--dur:4.39s;--delay:-0.3s"><img src="/assets/chiles/ristra-03.webp" alt="" width="259" height="1000" decoding="async"><svg class="bow" style="--brot:-2deg" viewBox="0 0 240 100" aria-hidden="true"><defs><path id="tp5" d="M22,60 Q120,40 218,60"/></defs><path class="paper tail" d="M36,38 L2,36 L16,60 L2,86 L36,86 Z"/><path class="paper fold" d="M22,74 L36,86 L36,66 Z"/><path class="paper tail" d="M204,38 L238,36 L224,60 L238,86 L204,86 Z"/><path class="paper fold" d="M218,74 L204,86 L204,66 Z"/><path class="paper" d="M22,26 Q120,6 218,26 L218,74 Q120,54 22,74 Z"/><text class="bt" text-anchor="middle"><textPath href="#tp5" startOffset="50%">Contact</textPath></text></svg><span class="lbl">Contact</span></a><span class="ristra flip" style="--img:url(/assets/chiles/ristra-06.webp);--rh:420px;--tw:68px;--rot:-1.3deg;--dur:3.36s;--delay:-1.2s" aria-hidden="true"><img src="/assets/chiles/ristra-06.webp" alt="" width="409" height="1000" decoding="async"></span><span class="ristra flip" style="--img:url(/assets/chiles/ristra-02.webp);--rh:380px;--tw:40px;--rot:1.7deg;--dur:3.73s;--delay:-2.1s" aria-hidden="true"><img src="/assets/chiles/ristra-02.webp" alt="" width="348" height="1000" decoding="async"></span><span class="ristra" style="--img:url(/assets/chiles/ristra-04.webp);--rh:460px;--tw:52px;--rot:-1.1deg;--dur:4.10s;--delay:-0.0s" aria-hidden="true"><img src="/assets/chiles/ristra-04.webp" alt="" width="408" height="1000" decoding="async"></span></nav></div>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Lab to Term Sheet · Part 2 of 5</div>
+  <h1>Seventeen out of twenty <span class="hl">will fail.</span> That's the plan.</h1>
+  <p class="dek">Venture math rests on one outlier carrying the whole portfolio. Once you see it, you'll understand every question a VC asks you.</p>
+  <div class="meta"><span class="eyebrow">5 min read</span><span class="eyebrow">Interactive</span><span class="eyebrow">Venture · Portfolio math</span></div>
+</div></section>
+
+<article>
+<div class="prose">
+  <p class="lede">Roughly nine out of ten startups fail. A bank can't lend into odds like that. Venture capital can, but only because it doesn't need most of its bets to work. It needs a very small number of them to work spectacularly.</p>
+  <p>This is the <em>power law</em>: returns are not spread evenly across a portfolio. They pile up in one or two companies. Here's a fund with twenty equal-sized checks. Click any company to change its outcome.</p>
+</div>
+
+<div class="lab" id="pl-lab">
+  <div class="lab-head"><h3>Build a 20-company fund</h3><span class="tag">Click tiles to change outcomes</span></div>
+  <div class="presets" role="group" aria-label="Presets">
+    <button class="btn" data-preset="classic">The classic: 17 fail, 2 do OK, 1 wins</button>
+    <button class="btn" data-preset="nohr">No home run</button>
+    <button class="btn" data-preset="safe">All "solid" outcomes</button>
+  </div>
+  <div class="legend"><span><i></i>0x · failed</span><span><i style="background:var(--stone)"></i>1x · money back</span><span><i style="background:var(--seafoam)"></i>5x</span><span><i style="background:var(--teal)"></i>20x</span><span><i style="background:var(--ink)"></i>100x</span></div>
+  <div class="grid20" id="grid"></div>
+  <div class="stats">
+    <div class="stat"><div class="num" id="mult">5.5x</div><div class="lbl">Fund multiple (gross)</div></div>
+    <div class="stat"><div class="num" id="fails">17</div><div class="lbl">Companies that returned nothing</div></div>
+    <div class="stat"><div class="num" id="top">91%</div><div class="lbl">Share of returns from the single best company</div></div>
+  </div>
+  <div class="contrib" id="contrib" aria-hidden="true"></div>
+  <div class="small">Each block shows one company's share of total returns.</div>
+  <p class="verdict" id="verdict" aria-live="polite"></p>
+</div>
+
+<div class="prose">
+  <p>Try "No home run." Seventeen failures plus three respectable 5x outcomes gives a fund that <em>loses money</em>. Now try "All solid outcomes": twenty companies that each return 2x sounds safe, but it barely beats the stock market after ten years of locked-up capital and fees. LPs don't sign up for that.</p>
+  <p>The classic portfolio works because of one tile. Remove the 100x and the fund collapses.</p>
+
+  <h2>Run a thousand funds</h2>
+  <p>Real outcomes are random. This simulation draws 20 companies per fund from an illustrative distribution, where most fail and a rare few go huge, and repeats it 1,000 times.</p>
+</div>
+
+<div class="lab" id="sim-lab">
+  <div class="lab-head"><h3>Monte Carlo: 1,000 funds</h3><button class="btn btn-primary" id="run">Run simulation</button></div>
+  <div class="hist" id="hist" aria-label="Histogram of fund multiples"></div>
+  <div class="hist-axis"><span>0x</span><span>1x</span><span>2x</span><span>3x</span><span>4x</span><span>5x+</span></div>
+  <div class="stats" style="margin-top:18px">
+    <div class="stat"><div class="num" id="s-med">–</div><div class="lbl">Median fund</div></div>
+    <div class="stat"><div class="num" id="s-mean">–</div><div class="lbl">Average fund</div></div>
+    <div class="stat"><div class="num" id="s-3x">–</div><div class="lbl">Funds returning 3x+</div></div>
+    <div class="stat"><div class="num" id="s-hr">–</div><div class="lbl">Of those, % with a 30x+ company</div></div>
+  </div>
+  <p class="small" style="margin-top:14px">Illustrative distribution per company: 60% 0x, 20% 1x, 12% 3x, 5% 10x, 2.5% 30x, 0.5% 100x. It isn't any particular fund's data, but the shape is the point.</p>
+</div>
+
+<div class="prose">
+  <h2>It's also a volume game</h2>
+  <p>To find that one tile, firms look at an enormous number of companies. A typical funnel looks something like this:</p>
+  <div class="funnel" aria-label="Deal funnel">
+    <div style="width:100%">Companies seen <b>~1,000+</b></div>
+    <div style="width:78%">First meetings <b>~100–200</b></div>
+    <div style="width:56%">Deep diligence <b>~20–40</b></div>
+    <div style="width:40%">Investment committee <b>~10</b></div>
+    <div style="width:34%">Invested <b>~2–5</b></div>
+  </div>
+  <p style="margin-top:20px">Labs and university tech-transfer offices can take the same approach: put many technologies through cheap, quick screens rather than going all in on one.</p>
+
+  <h2>What this means when you pitch</h2>
+  <p>A VC isn't asking "will this company succeed?" They're asking "if this works, could it be the one that returns the whole fund?" A great, profitable $80M business is a wonderful outcome for its founders, and a rounding error for a $200M fund.</p>
+  <p class="pull">Your job in the room is to make the 100x scenario believable, not just possible.</p>
+
+  <div class="takeaways">
+    <div class="eyebrow">Takeaways</div>
+    <ul>
+      <li>VCs <b>expect most investments to fail</b>; it's priced in.</li>
+      <li>A fund's result is usually <b>decided by one or two companies</b>.</li>
+      <li>So every pitch is judged by its <b>upside</b>, not just its odds of survival.</li>
+    </ul>
+  </div>
+
+  <nav class="pager">
+    <a href="01-fund-clock.html"><span class="eyebrow">← Previous</span><h3>Your raise runs on the fund's clock</h3></a>
+    <a class="next" href="03-venture-backable.html"><span class="eyebrow">Next →</span><h3>Is it venture-backable?</h3></a>
+  </nav>
+
+  <div class="sources"><div class="eyebrow">Sources & further reading</div>
+    <ul><li>Ilya Strebulaev & Alex Dang, <em>The Venture Mindset</em></li><li>Brad Feld & Jason Mendelson, <em>Venture Deals</em></li></ul>
+  </div>
+</div>
+</article>
+
+<footer><div class="wrap"><span>© Libby Fidel</span><a href="../index.html">Lab to Term Sheet: the playbook</a></div></footer>
+
+<script src="../assets/site.js"></script>
+<script>
+(function(){
+  var cycle=[0,1,5,20,100], state=[];
+  var colors={0:'#DDD5C8',1:'#B9B1A4',5:'#83C5BE',20:'#006D77',100:'#13292C'};
+  var presets={
+    classic:[100,5,5].concat(Array(17).fill(0)),
+    nohr:[5,5,5].concat(Array(17).fill(0)),
+    safe:Array(20).fill(-2)
+  };
+  var grid=document.getElementById('grid');
+  for(var i=0;i<20;i++){
+    var b=document.createElement('button');b.className='co';b.dataset.i=i;
+    b.addEventListener('click',function(){var j=+this.dataset.i;var v=state[j];var k=cycle.indexOf(v);state[j]=cycle[(k+1)%cycle.length];render()});
+    grid.appendChild(b);
+  }
+  function load(p){state=presets[p].slice();render()}
+  document.querySelectorAll('[data-preset]').forEach(function(b){b.addEventListener('click',function(){load(b.dataset.preset)})});
+  function render(){
+    var tiles=grid.children, total=0, fails=0, best=0;
+    state.forEach(function(v,i){
+      var x=v===-2?2:v; total+=x; if(x===0)fails++; if(x>best)best=x;
+      tiles[i].dataset.x=v===-2?'1':v; tiles[i].textContent=x+'x';
+      tiles[i].setAttribute('aria-label','Company '+(i+1)+': '+x+'x return');
+    });
+    var m=total/20;
+    document.getElementById('mult').textContent=m.toFixed(1)+'x';
+    document.getElementById('fails').textContent=fails;
+    document.getElementById('top').textContent=total?Math.round(best/total*100)+'%':'0%';
+    var c=document.getElementById('contrib');c.innerHTML='';
+    state.map(function(v){return v===-2?2:v}).filter(function(x){return x>0}).sort(function(a,b){return b-a}).forEach(function(x){
+      var s=document.createElement('span');s.style.width=(x/total*100)+'%';s.style.background=colors[x]||colors[1];s.style.borderRight='2px solid #F1EBE1';c.appendChild(s);
+    });
+    var v;
+    if(m<1) v='This fund loses money. LPs get back less than they put in.';
+    else if(m<2.5) v='Below what LPs expect. Venture is meant to deliver roughly 3x or more over a decade.';
+    else if(m<4) v='A good fund. Check how much of it rests on a single tile.';
+    else v='A top-tier fund. Now remove the best company and watch what happens.';
+    document.getElementById('verdict').textContent=v;
+  }
+  load('classic');
+
+  // Monte Carlo
+  var dist=[[0,.60],[1,.20],[3,.12],[10,.05],[30,.025],[100,.005]];
+  function draw(){var r=Math.random(),a=0;for(var i=0;i<dist.length;i++){a+=dist[i][1];if(r<a)return dist[i][0]}return 0}
+  document.getElementById('run').addEventListener('click',function(){
+    var res=[],bins=new Array(26).fill(0),hr3=0,n3=0;
+    for(var f=0;f<1000;f++){var t=0,mx=0;for(var c=0;c<20;c++){var x=draw();t+=x;if(x>mx)mx=x}var m=t/20;res.push(m);bins[Math.min(25,Math.floor(m/0.2))]++;if(m>=3){n3++;if(mx>=30)hr3++}}
+    res.sort(function(a,b){return a-b});
+    var mean=res.reduce(function(a,b){return a+b},0)/1000;
+    document.getElementById('s-med').textContent=res[500].toFixed(1)+'x';
+    document.getElementById('s-mean').textContent=mean.toFixed(1)+'x';
+    document.getElementById('s-3x').textContent=(n3/10).toFixed(0)+'%';
+    document.getElementById('s-hr').textContent=n3?Math.round(hr3/n3*100)+'%':'–';
+    var max=Math.max.apply(null,bins),h=document.getElementById('hist');h.innerHTML='';
+    bins.forEach(function(b,i){var d=document.createElement('div');d.style.height=(b/max*100)+'%';if(i>=15)d.className='hi';d.title=(i*0.2).toFixed(1)+'x: '+b+' funds';h.appendChild(d)});
+  });
+})();
+</script>
+</body>
+</html>
